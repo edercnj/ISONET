@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BC997CC3-9413-42FD-A401-BFECEEFD0FFA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ISONET.Domain</RootNamespace>
+    <AssemblyName>Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Action.cs" />
+    <Compile Include="Entities\Atrribute.cs" />
+    <Compile Include="Entities\AttributeFormat.cs" />
+    <Compile Include="Entities\AttributeMask.cs" />
+    <Compile Include="Entities\BitMap.cs" />
+    <Compile Include="Entities\ConditionUse.cs" />
+    <Compile Include="Entities\Function.cs" />
+    <Compile Include="Entities\Institution.cs" />
+    <Compile Include="Entities\MerchantCategoryClassification.cs" />
+    <Compile Include="Entities\Country.cs" />
+    <Compile Include="Entities\Currency.cs" />
+    <Compile Include="Entities\DataElement.cs" />
+    <Compile Include="Entities\InstitutionType.cs" />
+    <Compile Include="Entities\LengthType.cs" />
+    <Compile Include="Entities\Message.cs" />
+    <Compile Include="Entities\MessageClass.cs" />
+    <Compile Include="Entities\MessageFunction.cs" />
+    <Compile Include="Entities\MessageOrigin.cs" />
+    <Compile Include="Entities\MessageReason.cs" />
+    <Compile Include="Entities\MessageTypeIndicator.cs" />
+    <Compile Include="Entities\MessageVersion.cs" />
+    <Compile Include="Entities\PointOfService.cs" />
+    <Compile Include="Entities\TypeLengthValue.cs" />
+    <Compile Include="Interfaces\Entities\IAction.cs" />
+    <Compile Include="Interfaces\Entities\IAtrribute.cs" />
+    <Compile Include="Interfaces\Entities\IBitMap.cs" />
+    <Compile Include="Interfaces\Entities\IConditionUse.cs" />
+    <Compile Include="Interfaces\Entities\IDataElement.cs" />
+    <Compile Include="Interfaces\Entities\IFunction.cs" />
+    <Compile Include="Interfaces\Entities\IInstitution.cs" />
+    <Compile Include="Interfaces\Entities\IMerchantCategoryClassification.cs" />
+    <Compile Include="Interfaces\Entities\IMessage.cs" />
+    <Compile Include="Interfaces\Entities\IMessageReason.cs" />
+    <Compile Include="Interfaces\Entities\IMessageTypeIndicator.cs" />
+    <Compile Include="Interfaces\Entities\IPointOfService.cs" />
+    <Compile Include="Interfaces\Entities\ITypeLengthValue.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\BitMapConvert.cs" />
+    <Compile Include="Services\BitMapLengthValidation.cs" />
+    <Compile Include="Services\BitMapValidation.cs" />
+    <Compile Include="Services\MessageConvert.cs" />
+    <Compile Include="Services\DataElementBitValidation.cs" />
+    <Compile Include="Services\DataElementNameValidation.cs" />
+    <Compile Include="Services\DataElementValidation.cs" />
+    <Compile Include="Services\DataElementValueValidation.cs" />
+    <Compile Include="Services\FirstBitMapValidation.cs" />
+    <Compile Include="Services\LengthTypeValidation.cs" />
+    <Compile Include="Services\SecondBitMapPresentValidation.cs" />
+    <Compile Include="Services\SecondBitMapValidation.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
