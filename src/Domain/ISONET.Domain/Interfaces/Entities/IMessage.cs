@@ -2,9 +2,11 @@
 {
     public interface IMessage
     {
-        IBitMap BitMap { get; }
-        IMessageTypeIndicator Mti { get; }
-        IInstitution Institution { get; }
-        string MessageName { get; }
+        int Mti { get; set; }
+        IInstitution Institution { get; set; }
+        string MessageName { get; set; }
+        bool[] BitMap { get; set; }
+        IDataElement[] DataElements { get; set; }
+        object[] Header { get; set; }
     }
 }

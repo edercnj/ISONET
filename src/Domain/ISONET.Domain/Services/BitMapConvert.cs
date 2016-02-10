@@ -22,6 +22,7 @@ namespace ISONET.Domain.Services
             }
             catch (Exception erro)
             {
+                //TODO: Implementar tratamentos de exceção personalizados.
                 throw new Exception("Erro ao converter o map de Bits para string: " + erro.Message);
             }
         }

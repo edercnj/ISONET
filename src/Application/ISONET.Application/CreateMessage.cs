@@ -1,12 +1,13 @@
 ﻿using ISONET.Domain.Entities;
+using ISONET.Domain.Interfaces.Entities;
 
 namespace ISONET.Application
 {
     public class CreateMessage
     {
-        public Message Create(string message)
+        public Message Create(string stringMessage, ITemplate template, Message message)
         {
-            return null;
+            return message.Map(stringMessage, template);
         }
     }
 }

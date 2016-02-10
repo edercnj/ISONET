@@ -19,7 +19,7 @@ namespace ISONET.Domain.Entities
             AttributeFormat = characterFormat;
             LengthType = lengthType;
             AttributeMask = attributeMask;
-            MaxLength = maxLength; 
+            MaxLength = maxLength;
             Length = MaxLength;
         }
 

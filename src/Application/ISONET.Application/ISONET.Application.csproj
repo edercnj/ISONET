@@ -35,7 +35,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CreateMessage.cs" />
-    <Compile Include="ParseMessage.cs" />
+    <Compile Include="MessageExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

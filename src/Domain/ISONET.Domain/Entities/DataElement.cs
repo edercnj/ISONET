@@ -1,4 +1,5 @@
 ﻿using ISONET.Domain.Interfaces.Entities;
+using System;
 
 namespace ISONET.Domain.Entities
 {
@@ -36,11 +37,28 @@ namespace ISONET.Domain.Entities
         public IConditionUse ConditionUse { get; }
         public string Description { get; set; }
         public string Name { get; }
+
         public object Value { get; set; }
 
+        // TODO: Verificar a melhor forma de armazenar o valor para os tipos LLVAR e LLLVAR.
         public override string ToString()
         {
-            return Value.ToString();
+            string value = string.Empty;
+            switch (Attribute.LengthType)
+            {
+                case LengthType.LLLVAR:
+                    value = Convert.ToString(Value.ToString().Length) + Value;
+                    break;
+
+                case LengthType.LLVAR:
+                    value = Convert.ToString(Value.ToString().Length) + Value;
+                    break;
+
+                case LengthType.FIXED:
+                    break;
+            }
+
+            return value;
         }
     }
 }

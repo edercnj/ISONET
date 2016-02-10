@@ -38,10 +38,9 @@ namespace ISONET.Domain.Entities
 
         public override string ToString()
         {
-            return (CardDataInputCapability + CardholderAuthenticationCapability + CardCaptureCapability +
-                    OperatingEnvironment + CardholderPresent + CardPresent +
-                    CardDataInputMode + CardholderAuthenticationMethod + CardholderAuthenticationEntity +
-                    CardDataOutputCapability + TerminalOutputCapability + PINCaptureCapability);
+            return CardDataInputCapability + CardholderAuthenticationCapability + CardCaptureCapability + OperatingEnvironment +
+                   CardholderPresent + CardPresent + CardDataInputMode + CardholderAuthenticationMethod +
+                   CardholderAuthenticationEntity + CardDataOutputCapability + TerminalOutputCapability + PINCaptureCapability;
         }
     }
 }
