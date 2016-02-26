@@ -9,37 +9,43 @@ namespace ISONET.Application
         public static Message Map(this IMessage message, string stringMessage, ITemplate template)
         {
             int ignoreString = 0;
-            Message msg = (Message)message;
+            int length = template.Field.Length;
+            Message msg = (Message) message;
 
-            for (int i = 0; i < template.Field.Length; i++)
+            for (int i = 0; i < length; i++)
             {
                 switch (template.Field[i].FieldType)
                 {
                     case FieldType.Header:
-                        msg.Header[template.Field[i].Position] = stringMessage.Substring(ignoreString, template.Field[i].Length);
+                        msg.Header = stringMessage.Substring(ignoreString, template.Field[i].Length);
                         ignoreString += template.Field[i].Length;
                         break;
 
                     case FieldType.BitMap:
-                        msg.BitMap = DataConvert.ToBitMap(stringMessage.Substring(ignoreString, template.Field[i].Length));
+                        msg.BitMap =
+                            DataConvert.ToBitMap(stringMessage.Substring(ignoreString, template.Field[i].Length));
+                        ignoreString += template.Field[i].Length;
                         break;
 
                     case FieldType.DataElement:
                         switch (template.Field[i].LengthType)
                         {
                             case LengthType.FIXED:
-                                msg.DataElements[template.Field[i].Position].Value = stringMessage.Substring(ignoreString, template.Field[i].Length);
+                                msg.DataElements[template.Field[i].Position].Value =
+                                    stringMessage.Substring(ignoreString, template.Field[i].Length);
                                 ignoreString += template.Field[i].Length;
                                 break;
 
                             case LengthType.LLVAR:
-                                msg.DataElements[template.Field[i].Position].Value = stringMessage.Substring(ignoreString + 2, template.Field[i].Length);
-                                ignoreString += template.Field[i].Length;
+                                msg.DataElements[template.Field[i].Position].Value =
+                                    stringMessage.Substring(ignoreString + 2, template.Field[i].Length);
+                                ignoreString += template.Field[i].Length + 2;
                                 break;
 
                             case LengthType.LLLVAR:
-                                msg.DataElements[template.Field[i].Position].Value = stringMessage.Substring(ignoreString + 3, template.Field[i].Length);
-                                ignoreString += template.Field[i].Length;
+                                msg.DataElements[template.Field[i].Position].Value =
+                                    stringMessage.Substring(ignoreString + 3, template.Field[i].Length);
+                                ignoreString += template.Field[i].Length + 3;
                                 break;
                         }
                         break;

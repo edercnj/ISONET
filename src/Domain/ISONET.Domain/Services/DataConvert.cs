@@ -12,20 +12,21 @@ namespace ISONET.Domain.Services
 
         public static string ToBinaryString(string hexValue)
         {
-            return string.Join(string.Empty, hexValue.Select(c => Convert.ToString(Convert.ToInt32(c.ToString(), 16), 2).PadLeft(4, '0')));
+            return string.Join(string.Empty,
+                hexValue.Select(c => Convert.ToString(Convert.ToInt32(c.ToString(), 16), 2).PadLeft(4, '0')));
         }
 
         public static bool[] ToBitMap(string HexValue)
         {
             string binaryString = ToBinaryString(HexValue);
-            char[] binaryCharArray = ToCharArray(binaryString);
+            var binaryCharArray = ToCharArray(binaryString);
 
             return ToBoolArray(binaryCharArray);
         }
 
         public static bool[] ToBoolArray(char[] binaryCharArray)
         {
-            bool[] bitMap = new bool[binaryCharArray.Length];
+            var bitMap = new bool[binaryCharArray.Length];
 
             for (int i = 0; i < binaryCharArray.Length; i++)
             {
@@ -45,6 +46,14 @@ namespace ISONET.Domain.Services
             }
 
             return bitMap;
+        }
+
+        public static int ConvertToNumeric(object val, int decimalPlaces)
+        {
+            string decimalFormat = "D" + decimalPlaces;
+            string value = Convert.ToInt32(val.ToString()).ToString(decimalFormat);
+
+            return Convert.ToInt32(value);
         }
     }
 }

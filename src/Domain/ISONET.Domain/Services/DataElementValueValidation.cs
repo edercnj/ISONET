@@ -4,7 +4,7 @@
     {
         public static bool IsValid(object value)
         {
-            bool isValid = !value.Equals(null) || !value.Equals("");
+            bool isValid = !value.Equals(null) || !value.Equals("") || !value.Equals(string.Empty);
 
             return isValid;
         }

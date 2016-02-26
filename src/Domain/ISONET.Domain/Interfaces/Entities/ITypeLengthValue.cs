@@ -1,7 +1,7 @@
 ﻿namespace ISONET.Domain.Interfaces.Entities
 {
     /// <summary>
-    /// Interface para abstração de tags TLV.
+    ///     Interface para abstração de tags TLV.
     /// </summary>
     public interface ITypeLengthValue
     {

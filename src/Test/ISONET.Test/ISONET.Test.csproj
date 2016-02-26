@@ -60,6 +60,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Application\ISONET.Application\ISONET.Application.csproj">
+      <Project>{DF605B1A-923C-4BD6-B07B-04C4B2B227E5}</Project>
+      <Name>ISONET.Application</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Domain\ISONET.Domain\ISONET.Domain.csproj">
       <Project>{bc997cc3-9413-42fd-a401-bfeceefd0ffa}</Project>
       <Name>Odin.Domain</Name>
