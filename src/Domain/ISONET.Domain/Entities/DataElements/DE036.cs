@@ -4,6 +4,27 @@ namespace ISONET.Domain.Entities.DataElements
 {
     public sealed class DE036 : DataElement
     {
+        //Custom Data Element
+        public DE036(IAtrribute attribute, IConditionUse conditionUse, string description, string name, object value)
+        {
+            Attribute = attribute;
+            Bit = 036;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+            Value = value;
+        }
+
+        //Custom Data Element
+        public DE036(IAtrribute attribute, IConditionUse conditionUse, string description, string name)
+        {
+            Attribute = attribute;
+            Bit = 036;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+        }
+
         public DE036(IConditionUse conditionUse, object value)
         {
             Attribute = new Atrribute(new[] { AttributeFormat.ISOTRACK }, LengthType.LLLVAR, new[] { AttributeMask.NoMask }, 104);

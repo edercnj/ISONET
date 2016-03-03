@@ -4,12 +4,33 @@ namespace ISONET.Domain.Entities.DataElements
 {
     public sealed class DE097 : DataElement
     {
+        //Custom Data Element
+        public DE097(IAtrribute attribute, IConditionUse conditionUse, string description, string name, object value)
+        {
+            Attribute = attribute;
+            Bit = 097;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+            Value = value;
+        }
+
+        //Custom Data Element
+        public DE097(IAtrribute attribute, IConditionUse conditionUse, string description, string name)
+        {
+            Attribute = attribute;
+            Bit = 097;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+        }
+
         public DE097(IConditionUse conditionUse, object value)
         {
             Attribute = new Atrribute(new[] { AttributeFormat.X, AttributeFormat.NUMERIC }, LengthType.FIXED, new[] { AttributeMask.NoMask }, 1 + 16);
             // Neste caso é necessário 1 + 16 pois o formato X é C ou D + o proximo formato.
             ConditionUse = conditionUse;
-            Bit = 0097;
+            Bit = 097;
             Name = "amount, net reconciliation";
             Value = value;
         }
@@ -19,7 +40,7 @@ namespace ISONET.Domain.Entities.DataElements
             Attribute = new Atrribute(new[] { AttributeFormat.X, AttributeFormat.NUMERIC }, LengthType.FIXED, new[] { AttributeMask.NoMask }, 1 + 16);
             // Neste caso é necessário 1 + 16 pois o formato X é C ou D + o proximo formato.
             ConditionUse = conditionUse;
-            Bit = 0097;
+            Bit = 097;
             Name = "amount, net reconciliation";
         }
 

@@ -4,11 +4,32 @@ namespace ISONET.Domain.Entities.DataElements
 {
     public sealed class DE099 : DataElement
     {
+        //Custom Data Element
+        public DE099(IAtrribute attribute, IConditionUse conditionUse, string description, string name, object value)
+        {
+            Attribute = attribute;
+            Bit = 099;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+            Value = value;
+        }
+
+        //Custom Data Element
+        public DE099(IAtrribute attribute, IConditionUse conditionUse, string description, string name)
+        {
+            Attribute = attribute;
+            Bit = 099;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+        }
+
         public DE099(IConditionUse conditionUse, object value)
         {
             Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC, AttributeFormat.SPECIAL }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 11);
             ConditionUse = conditionUse;
-            Bit = 0099;
+            Bit = 099;
             Name = "Isettlement institution identification code";
             Value = value;
         }
@@ -17,7 +38,7 @@ namespace ISONET.Domain.Entities.DataElements
         {
             Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC, AttributeFormat.SPECIAL }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 11);
             ConditionUse = conditionUse;
-            Bit = 0099;
+            Bit = 099;
             Name = "Isettlement institution identification code";
         }
 
@@ -25,7 +46,7 @@ namespace ISONET.Domain.Entities.DataElements
         {
             Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC, AttributeFormat.SPECIAL }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 11, length);
             ConditionUse = conditionUse;
-            Bit = 0099;
+            Bit = 099;
             Name = "Isettlement institution identification code";
             Value = value;
         }
@@ -34,7 +55,7 @@ namespace ISONET.Domain.Entities.DataElements
         {
             Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC, AttributeFormat.SPECIAL }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 11, length);
             ConditionUse = conditionUse;
-            Bit = 0099;
+            Bit = 099;
             Name = "Isettlement institution identification code";
         }
 

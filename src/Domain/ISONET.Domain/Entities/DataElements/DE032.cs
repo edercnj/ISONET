@@ -4,6 +4,27 @@ namespace ISONET.Domain.Entities.DataElements
 {
     public sealed class DE032 : DataElement
     {
+        //Custom Data Element
+        public DE032(IAtrribute attribute, IConditionUse conditionUse, string description, string name, object value)
+        {
+            Attribute = attribute;
+            Bit = 032;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+            Value = value;
+        }
+
+        //Custom Data Element
+        public DE032(IAtrribute attribute, IConditionUse conditionUse, string description, string name)
+        {
+            Attribute = attribute;
+            Bit = 032;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+        }
+
         public DE032(IConditionUse conditionUse, object value)
         {
             Attribute = new Atrribute(new[] { AttributeFormat.NUMERIC }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 11);
@@ -32,8 +53,7 @@ namespace ISONET.Domain.Entities.DataElements
 
         public DE032(IConditionUse conditionUse, short length)
         {
-            Attribute = new Atrribute(new[] { AttributeFormat.NUMERIC }, LengthType.LLVAR, new[] { AttributeMask.NoMask },
-                11, length);
+            Attribute = new Atrribute(new[] { AttributeFormat.NUMERIC }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 11, length);
             ConditionUse = conditionUse;
             Bit = 032;
             Name = "acquirer institution identification code";

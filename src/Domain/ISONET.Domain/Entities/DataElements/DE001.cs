@@ -2,7 +2,7 @@
 
 namespace ISONET.Domain.Entities.DataElements
 {
-    public class DE001 : DataElement
+    public sealed class DE001 : DataElement
     {
         public DE001(IConditionUse conditionUse, object value)
         {
@@ -23,6 +23,27 @@ namespace ISONET.Domain.Entities.DataElements
 
         public override IAtrribute Attribute { get; }
 
+        //Custom  Data Element
+        public DE001(IAtrribute attribute, short bit, IConditionUse conditionUse, string description, string name)
+        {
+            Attribute = attribute;
+            Bit = bit;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+        }
+
+        //Custom  Data Element
+        public DE001(IAtrribute attribute, short bit, IConditionUse conditionUse, string description, string name, object value)
+        {
+            Attribute = attribute;
+            Bit = bit;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+            Value = value;
+        }
+
         public override short Bit { get; }
 
         public override IConditionUse ConditionUse { get; }
@@ -30,6 +51,6 @@ namespace ISONET.Domain.Entities.DataElements
 
         public override string Name { get; }
 
-        public sealed override object Value { get; set; }
+        public override object Value { get; set; }
     }
 }

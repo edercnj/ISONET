@@ -4,11 +4,32 @@ namespace ISONET.Domain.Entities.DataElements
 {
     public sealed class DE066 : DataElement
     {
+        //Custom Data Element
+        public DE066(IAtrribute attribute, IConditionUse conditionUse, string description, string name, object value)
+        {
+            Attribute = attribute;
+            Bit = 066;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+            Value = value;
+        }
+
+        //Custom Data Element
+        public DE066(IAtrribute attribute, IConditionUse conditionUse, string description, string name)
+        {
+            Attribute = attribute;
+            Bit = 066;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+        }
+
         public DE066(IConditionUse conditionUse, object value)
         {
             Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC, AttributeFormat.SPECIAL }, LengthType.LLLVAR, new[] { AttributeMask.NoMask }, 204);
             ConditionUse = conditionUse;
-            Bit = 0066;
+            Bit = 066;
             Name = "amounts, original fees";
             Value = value;
         }
@@ -17,7 +38,7 @@ namespace ISONET.Domain.Entities.DataElements
         {
             Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC, AttributeFormat.SPECIAL }, LengthType.LLLVAR, new[] { AttributeMask.NoMask }, 204);
             ConditionUse = conditionUse;
-            Bit = 0066;
+            Bit = 006;
             Name = "amounts, original fees";
         }
 
@@ -25,7 +46,7 @@ namespace ISONET.Domain.Entities.DataElements
         {
             Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC, AttributeFormat.SPECIAL }, LengthType.LLLVAR, new[] { AttributeMask.NoMask }, 204, length);
             ConditionUse = conditionUse;
-            Bit = 0066;
+            Bit = 066;
             Name = "amounts, original fees";
             Value = value;
         }
@@ -34,7 +55,7 @@ namespace ISONET.Domain.Entities.DataElements
         {
             Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC, AttributeFormat.SPECIAL }, LengthType.LLLVAR, new[] { AttributeMask.NoMask }, 204, length);
             ConditionUse = conditionUse;
-            Bit = 0066;
+            Bit = 066;
             Name = "amounts, original fees";
         }
 

@@ -4,11 +4,32 @@ namespace ISONET.Domain.Entities.DataElements
 {
     public sealed class DE065 : DataElement
     {
+        //Custom Data Element
+        public DE065(IAtrribute attribute, IConditionUse conditionUse, string description, string name, object value)
+        {
+            Attribute = attribute;
+            Bit = 065;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+            Value = value;
+        }
+
+        //Custom Data Element
+        public DE065(IAtrribute attribute, IConditionUse conditionUse, string description, string name)
+        {
+            Attribute = attribute;
+            Bit = 065;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+        }
+
         public DE065(IConditionUse conditionUse, object value)
         {
             Attribute = new Atrribute(new[] { AttributeFormat.BINARY }, LengthType.FIXED, new[] { AttributeMask.NoMask }, 8);
             ConditionUse = conditionUse;
-            Bit = 0065;
+            Bit = 065;
             Name = "reserved for IS0 use";
             Value = value;
         }
@@ -17,7 +38,7 @@ namespace ISONET.Domain.Entities.DataElements
         {
             Attribute = new Atrribute(new[] { AttributeFormat.BINARY }, LengthType.FIXED, new[] { AttributeMask.NoMask }, 8);
             ConditionUse = conditionUse;
-            Bit = 0065;
+            Bit = 065;
             Name = "reserved for IS0 use";
         }
 
@@ -25,7 +46,7 @@ namespace ISONET.Domain.Entities.DataElements
         {
             Attribute = new Atrribute(new[] { AttributeFormat.BINARY }, LengthType.FIXED, new[] { AttributeMask.NoMask }, 8, length);
             ConditionUse = conditionUse;
-            Bit = 0065;
+            Bit = 065;
             Name = "reserved for IS0 use";
             Value = value;
         }
@@ -34,7 +55,7 @@ namespace ISONET.Domain.Entities.DataElements
         {
             Attribute = new Atrribute(new[] { AttributeFormat.BINARY }, LengthType.FIXED, new[] { AttributeMask.NoMask }, 8, length);
             ConditionUse = conditionUse;
-            Bit = 0065;
+            Bit = 065;
             Name = "reserved for IS0 use";
         }
 

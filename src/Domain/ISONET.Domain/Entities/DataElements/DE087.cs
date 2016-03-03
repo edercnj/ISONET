@@ -4,11 +4,32 @@ namespace ISONET.Domain.Entities.DataElements
 {
     public sealed class DE087 : DataElement
     {
+        //Custom Data Element
+        public DE087(IAtrribute attribute, IConditionUse conditionUse, string description, string name, object value)
+        {
+            Attribute = attribute;
+            Bit = 087;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+            Value = value;
+        }
+
+        //Custom Data Element
+        public DE087(IAtrribute attribute, IConditionUse conditionUse, string description, string name)
+        {
+            Attribute = attribute;
+            Bit = 087;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+        }
+
         public DE087(IConditionUse conditionUse, object value)
         {
             Attribute = new Atrribute(new[] { AttributeFormat.NUMERIC }, LengthType.FIXED, new[] { AttributeMask.NoMask }, 16);
             ConditionUse = conditionUse;
-            Bit = 0087;
+            Bit = 087;
             Name = "credits, reversal amount";
             Value = value;
         }
@@ -17,7 +38,7 @@ namespace ISONET.Domain.Entities.DataElements
         {
             Attribute = new Atrribute(new[] { AttributeFormat.NUMERIC }, LengthType.FIXED, new[] { AttributeMask.NoMask }, 16);
             ConditionUse = conditionUse;
-            Bit = 0087;
+            Bit = 087;
             Name = "credits, reversal amount";
         }
 

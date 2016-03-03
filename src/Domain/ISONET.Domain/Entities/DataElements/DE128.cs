@@ -4,11 +4,32 @@ namespace ISONET.Domain.Entities.DataElements
 {
     public sealed class DE128 : DataElement
     {
+        //Custom Data Element
+        public DE128(IAtrribute attribute, IConditionUse conditionUse, string description, string name)
+        {
+            Attribute = attribute;
+            Bit = 128;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+        }
+
+        //Custom Data Element
+        public DE128(IAtrribute attribute, IConditionUse conditionUse, string description, string name, object value)
+        {
+            Attribute = attribute;
+            Bit = 128;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+            Value = value;
+        }
+
         public DE128(IConditionUse conditionUse, object value)
         {
             Attribute = new Atrribute(new[] { AttributeFormat.BINARY }, LengthType.FIXED, new[] { AttributeMask.NoMask }, 8);
             ConditionUse = conditionUse;
-            Bit = 0128;
+            Bit = 128;
             Name = "message authentication code field";
             Value = value;
         }
@@ -17,7 +38,7 @@ namespace ISONET.Domain.Entities.DataElements
         {
             Attribute = new Atrribute(new[] { AttributeFormat.BINARY }, LengthType.FIXED, new[] { AttributeMask.NoMask }, 8);
             ConditionUse = conditionUse;
-            Bit = 0128;
+            Bit = 128;
             Name = "message authentication code field";
         }
 

@@ -4,6 +4,27 @@ namespace ISONET.Domain.Entities.DataElements
 {
     public sealed class DE049 : DataElement
     {
+        //Custom Data Element
+        public DE049(IAtrribute attribute, IConditionUse conditionUse, string description, string name, Currency currency)
+        {
+            Attribute = attribute;
+            Bit = 049;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+            Value = (int)currency;
+        }
+
+        //Custom Data Element
+        public DE049(IAtrribute attribute, IConditionUse conditionUse, string description, string name)
+        {
+            Attribute = attribute;
+            Bit = 049;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+        }
+
         public DE049(IConditionUse conditionUse, Currency currency)
         {
             //TODO: Implementar tratamento de numérico ou Alfabético

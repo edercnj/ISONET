@@ -10,7 +10,7 @@ namespace ISONET.Application
         {
             int ignoreString = 0;
             int length = template.Field.Length;
-            Message msg = (Message) message;
+            Message msg = (Message)message;
 
             for (int i = 0; i < length; i++)
             {
@@ -22,8 +22,7 @@ namespace ISONET.Application
                         break;
 
                     case FieldType.BitMap:
-                        msg.BitMap =
-                            DataConvert.ToBitMap(stringMessage.Substring(ignoreString, template.Field[i].Length));
+                        msg.BitMap = DataConvert.ToBitMap(stringMessage.Substring(ignoreString, template.Field[i].Length));
                         ignoreString += template.Field[i].Length;
                         break;
 
@@ -31,20 +30,17 @@ namespace ISONET.Application
                         switch (template.Field[i].LengthType)
                         {
                             case LengthType.FIXED:
-                                msg.DataElements[template.Field[i].Position].Value =
-                                    stringMessage.Substring(ignoreString, template.Field[i].Length);
+                                msg.DataElements[template.Field[i].Position].Value = stringMessage.Substring(ignoreString, template.Field[i].Length);
                                 ignoreString += template.Field[i].Length;
                                 break;
 
                             case LengthType.LLVAR:
-                                msg.DataElements[template.Field[i].Position].Value =
-                                    stringMessage.Substring(ignoreString + 2, template.Field[i].Length);
+                                msg.DataElements[template.Field[i].Position].Value = stringMessage.Substring(ignoreString + 2, template.Field[i].Length);
                                 ignoreString += template.Field[i].Length + 2;
                                 break;
 
                             case LengthType.LLLVAR:
-                                msg.DataElements[template.Field[i].Position].Value =
-                                    stringMessage.Substring(ignoreString + 3, template.Field[i].Length);
+                                msg.DataElements[template.Field[i].Position].Value = stringMessage.Substring(ignoreString + 3, template.Field[i].Length);
                                 ignoreString += template.Field[i].Length + 3;
                                 break;
                         }

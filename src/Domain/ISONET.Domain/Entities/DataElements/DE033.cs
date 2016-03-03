@@ -4,6 +4,27 @@ namespace ISONET.Domain.Entities.DataElements
 {
     public sealed class DE033 : DataElement
     {
+        //Custom Data Element
+        public DE033(IAtrribute attribute, IConditionUse conditionUse, string description, string name, object value)
+        {
+            Attribute = attribute;
+            Bit = 033;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+            Value = value;
+        }
+
+        //Custom Data Element
+        public DE033(IAtrribute attribute, IConditionUse conditionUse, string description, string name)
+        {
+            Attribute = attribute;
+            Bit = 033;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+        }
+
         public DE033(IConditionUse conditionUse, object value)
         {
             Attribute = new Atrribute(new[] { AttributeFormat.NUMERIC }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 11);
@@ -32,8 +53,7 @@ namespace ISONET.Domain.Entities.DataElements
 
         public DE033(IConditionUse conditionUse, short length)
         {
-            Attribute = new Atrribute(new[] { AttributeFormat.NUMERIC }, LengthType.LLVAR, new[] { AttributeMask.NoMask },
-                11, length);
+            Attribute = new Atrribute(new[] { AttributeFormat.NUMERIC }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 11, length);
             ConditionUse = conditionUse;
             Bit = 033;
             Name = "forwarding institution identification code";

@@ -4,10 +4,30 @@ namespace ISONET.Domain.Entities.DataElements
 {
     public sealed class DE022 : DataElement
     {
+        //Custom Data Element
+        public DE022(IAtrribute attribute, IConditionUse conditionUse, string description, string name, object value)
+        {
+            Attribute = attribute;
+            Bit = 022;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+            Value = value;
+        }
+
+        //Custom Data Element
+        public DE022(IAtrribute attribute, IConditionUse conditionUse, string description, string name)
+        {
+            Attribute = attribute;
+            Bit = 022;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+        }
+
         public DE022(IConditionUse conditionUse, object value)
         {
-            Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC }, LengthType.FIXED,
-                new[] { AttributeMask.NoMask }, 12);
+            Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC }, LengthType.FIXED, new[] { AttributeMask.NoMask }, 12);
             ConditionUse = conditionUse;
             Bit = 022;
             Name = "point of service data code";
@@ -16,8 +36,7 @@ namespace ISONET.Domain.Entities.DataElements
 
         public DE022(IConditionUse conditionUse)
         {
-            Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC }, LengthType.FIXED,
-                new[] { AttributeMask.NoMask }, 12);
+            Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC }, LengthType.FIXED, new[] { AttributeMask.NoMask }, 12);
             ConditionUse = conditionUse;
             Bit = 022;
             Name = "point of service data code";
@@ -32,10 +51,6 @@ namespace ISONET.Domain.Entities.DataElements
 
         public override string Name { get; }
 
-        public override object Value
-        {
-            get { return Value; }
-            set { Value = value; }
-        }
+        public override object Value { get; set; }
     }
 }

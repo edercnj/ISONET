@@ -4,6 +4,28 @@ namespace ISONET.Domain.Entities.DataElements
 {
     public sealed class DE069 : DataElement
     {
+        //Custom Data Element
+        public DE069(IAtrribute attribute, short bit, IConditionUse conditionUse, string description, string name,
+            Country country)
+        {
+            Attribute = attribute;
+            Bit = bit;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+            Value = (int)country;
+        }
+
+        //Custom Data Element
+        public DE069(IAtrribute attribute, short bit, IConditionUse conditionUse, string description, string name)
+        {
+            Attribute = attribute;
+            Bit = bit;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+        }
+
         public DE069(IConditionUse conditionUse, Country country)
         {
             Attribute = new Atrribute(new[] { AttributeFormat.NUMERIC }, LengthType.FIXED, new[] { AttributeMask.NoMask }, 3);
@@ -30,10 +52,6 @@ namespace ISONET.Domain.Entities.DataElements
 
         public override string Name { get; }
 
-        public override object Value
-        {
-            get { return (int)Value; } //TODO: Resolver problemas de validação para tipo object
-            set { Value = (int)value; }
-        }
+        public override object Value { get; set; }
     }
 }

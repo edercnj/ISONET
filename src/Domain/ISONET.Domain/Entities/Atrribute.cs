@@ -4,8 +4,7 @@ namespace ISONET.Domain.Entities
 {
     public class Atrribute : IAtrribute
     {
-        public Atrribute(AttributeFormat[] characterFormat, LengthType lengthType, AttributeMask[] attributeMask,
-            short maxLength)
+        public Atrribute(AttributeFormat[] characterFormat, LengthType lengthType, AttributeMask[] attributeMask, short maxLength)
         {
             AttributeFormat = characterFormat;
             LengthType = lengthType;
@@ -14,8 +13,7 @@ namespace ISONET.Domain.Entities
             Length = MaxLength;
         }
 
-        public Atrribute(AttributeFormat[] attributeFormat, LengthType lengthType, AttributeMask[] attributeMask,
-            short maxLength, short length)
+        public Atrribute(AttributeFormat[] attributeFormat, LengthType lengthType, AttributeMask[] attributeMask, short maxLength, short length)
         {
             AttributeFormat = attributeFormat;
             AttributeMask = attributeMask;

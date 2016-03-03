@@ -4,10 +4,30 @@ namespace ISONET.Domain.Entities.DataElements
 {
     public sealed class DE006 : DataElement
     {
+        //Custom  Data Element
+        public DE006(IAtrribute attribute, IConditionUse conditionUse, string description, string name, object value)
+        {
+            Attribute = attribute;
+            Bit = 006;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+            Value = value;
+        }
+
+        //Custom  Data Element
+        public DE006(IAtrribute attribute, IConditionUse conditionUse, string description, string name)
+        {
+            Attribute = attribute;
+            Bit = 006;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+        }
+
         public DE006(IConditionUse conditionUse, object value)
         {
-            Attribute = new Atrribute(new[] { AttributeFormat.NUMERIC }, LengthType.FIXED, new[] { AttributeMask.NoMask },
-                12);
+            Attribute = new Atrribute(new[] { AttributeFormat.NUMERIC }, LengthType.FIXED, new[] { AttributeMask.NoMask }, 12);
             ConditionUse = conditionUse;
             Bit = 006;
             Name = "amount, cardholder billing";
@@ -16,8 +36,7 @@ namespace ISONET.Domain.Entities.DataElements
 
         public DE006(IConditionUse conditionUse)
         {
-            Attribute = new Atrribute(new[] { AttributeFormat.NUMERIC }, LengthType.FIXED, new[] { AttributeMask.NoMask },
-                12);
+            Attribute = new Atrribute(new[] { AttributeFormat.NUMERIC }, LengthType.FIXED, new[] { AttributeMask.NoMask }, 12);
             ConditionUse = conditionUse;
             Bit = 006;
             Name = "amount, cardholder billing";

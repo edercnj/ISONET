@@ -4,10 +4,30 @@ namespace ISONET.Domain.Entities.DataElements
 {
     public sealed class DE035 : DataElement
     {
+        //Custom Data Element
+        public DE035(IAtrribute attribute, IConditionUse conditionUse, string description, string name, object value)
+        {
+            Attribute = attribute;
+            Bit = 035;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+            Value = value;
+        }
+
+        //Custom Data Element
+        public DE035(IAtrribute attribute, IConditionUse conditionUse, string description, string name)
+        {
+            Attribute = attribute;
+            Bit = 035;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+        }
+
         public DE035(IConditionUse conditionUse, object value)
         {
-            Attribute = new Atrribute(new[] { AttributeFormat.ISOTRACK }, LengthType.LLVAR, new[] { AttributeMask.NoMask },
-                37);
+            Attribute = new Atrribute(new[] { AttributeFormat.ISOTRACK }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 37);
             ConditionUse = conditionUse;
             Bit = 035;
             Name = "track 2 data";
@@ -16,8 +36,7 @@ namespace ISONET.Domain.Entities.DataElements
 
         public DE035(IConditionUse conditionUse)
         {
-            Attribute = new Atrribute(new[] { AttributeFormat.ISOTRACK }, LengthType.LLVAR, new[] { AttributeMask.NoMask },
-                37);
+            Attribute = new Atrribute(new[] { AttributeFormat.ISOTRACK }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 37);
             ConditionUse = conditionUse;
             Bit = 035;
             Name = "track 2 data";

@@ -12,7 +12,6 @@ namespace ISONET.Domain.Entities
         public abstract string Name { get; }
         public abstract object Value { get; set; }
 
-        // TODO: Verificar a melhor forma de armazenar o valor para os tipos LLVAR e LLLVAR.
         public override string ToString()
         {
             string value = string.Empty;
@@ -28,6 +27,7 @@ namespace ISONET.Domain.Entities
                     break;
 
                 case LengthType.FIXED:
+                    value = Value.ToString();
                     break;
             }
 

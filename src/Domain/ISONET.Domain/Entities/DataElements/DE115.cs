@@ -2,39 +2,60 @@
 
 namespace ISONET.Domain.Entities.DataElements
 {
-    internal class DE115 : DataElement
+    public sealed class DE115 : DataElement
     {
-        protected DE115(IConditionUse conditionUse, object value)
+        //Custom Data Element
+        public DE115(IAtrribute attribute, IConditionUse conditionUse, string description, string name, object value)
+        {
+            Attribute = attribute;
+            Bit = 115;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+            Value = value;
+        }
+
+        //Custom Data Element
+        public DE115(IAtrribute attribute, IConditionUse conditionUse, string description, string name)
+        {
+            Attribute = attribute;
+            Bit = 115;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+        }
+
+        public DE115(IConditionUse conditionUse, object value)
         {
             Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC, AttributeFormat.SPECIAL }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 999);
             ConditionUse = conditionUse;
-            Bit = 0115;
+            Bit = 115;
             Name = "reserved for IS0 use";
             Value = value;
         }
 
-        protected DE115(IConditionUse conditionUse)
+        public DE115(IConditionUse conditionUse)
         {
             Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC, AttributeFormat.SPECIAL }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 999);
             ConditionUse = conditionUse;
-            Bit = 0115;
+            Bit = 115;
             Name = "reserved for IS0 use";
         }
 
-        protected DE115(IConditionUse conditionUse, object value, short length)
+        public DE115(IConditionUse conditionUse, object value, short length)
         {
             Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC, AttributeFormat.SPECIAL }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 999, length);
             ConditionUse = conditionUse;
-            Bit = 0115;
+            Bit = 115;
             Name = "reserved for IS0 use";
             Value = value;
         }
 
-        protected DE115(IConditionUse conditionUse, short length)
+        public DE115(IConditionUse conditionUse, short length)
         {
             Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC, AttributeFormat.SPECIAL }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 999, length);
             ConditionUse = conditionUse;
-            Bit = 0115;
+            Bit = 115;
             Name = "reserved for IS0 use";
         }
 
@@ -43,10 +64,11 @@ namespace ISONET.Domain.Entities.DataElements
         public override short Bit { get; }
 
         public override IConditionUse ConditionUse { get; }
+
         public override string Description { get; set; }
 
         public override string Name { get; }
 
-        public sealed override object Value { get; set; }
+        public override object Value { get; set; }
     }
 }

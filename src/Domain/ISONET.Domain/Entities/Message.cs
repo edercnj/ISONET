@@ -1,6 +1,6 @@
-using System.Linq;
 using ISONET.Domain.Interfaces.Entities;
 using ISONET.Domain.Services;
+using System.Linq;
 
 namespace ISONET.Domain.Entities
 {
@@ -36,9 +36,7 @@ namespace ISONET.Domain.Entities
         public override string ToString()
         {
             //TODO: Efetuar a implementação correta para retornar o bitMap no formato que o mesmo foi recebido.
-            return Mti +
-                   DataElements.Aggregate(Header + BitMapConvert.BitMapToString(BitMap),
-                       (current, element) => current + element.ToString());
+            return Mti + DataElements.Aggregate(Header + BitMapConvert.BitMapToString(BitMap), (current, element) => current + element.ToString());
         }
     }
 }

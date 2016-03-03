@@ -4,11 +4,32 @@ namespace ISONET.Domain.Entities.DataElements
 {
     public sealed class DE121 : DataElement
     {
+        //Custom Data Element
+        public DE121(IAtrribute attribute, IConditionUse conditionUse, string description, string name, object value)
+        {
+            Attribute = attribute;
+            Bit = 121;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+            Value = value;
+        }
+
+        //Custom Data Element
+        public DE121(IAtrribute attribute, IConditionUse conditionUse, string description, string name)
+        {
+            Attribute = attribute;
+            Bit = 121;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+        }
+
         public DE121(IConditionUse conditionUse, object value)
         {
             Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC, AttributeFormat.SPECIAL }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 999);
             ConditionUse = conditionUse;
-            Bit = 0121;
+            Bit = 121;
             Name = "reserved for national use";
             Value = value;
         }
@@ -17,7 +38,7 @@ namespace ISONET.Domain.Entities.DataElements
         {
             Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC, AttributeFormat.SPECIAL }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 999);
             ConditionUse = conditionUse;
-            Bit = 0121;
+            Bit = 121;
             Name = name;
             Value = value;
         }
@@ -26,7 +47,7 @@ namespace ISONET.Domain.Entities.DataElements
         {
             Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC, AttributeFormat.SPECIAL }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 999);
             ConditionUse = conditionUse;
-            Bit = 0121;
+            Bit = 121;
             Name = "reserved for national use";
         }
 
@@ -34,7 +55,41 @@ namespace ISONET.Domain.Entities.DataElements
         {
             Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC, AttributeFormat.SPECIAL }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 999);
             ConditionUse = conditionUse;
-            Bit = 0121;
+            Bit = 121;
+            Name = name;
+        }
+
+        public DE121(IConditionUse conditionUse, object value, short length)
+        {
+            Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC, AttributeFormat.SPECIAL }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 999, length);
+            ConditionUse = conditionUse;
+            Bit = 121;
+            Name = "reserved for national use";
+            Value = value;
+        }
+
+        public DE121(IConditionUse conditionUse, object value, string name, short length)
+        {
+            Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC, AttributeFormat.SPECIAL }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 999, length);
+            ConditionUse = conditionUse;
+            Bit = 121;
+            Name = name;
+            Value = value;
+        }
+
+        public DE121(IConditionUse conditionUse, short length)
+        {
+            Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC, AttributeFormat.SPECIAL }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 999, length);
+            ConditionUse = conditionUse;
+            Bit = 121;
+            Name = "reserved for national use";
+        }
+
+        public DE121(IConditionUse conditionUse, string name, short length)
+        {
+            Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC, AttributeFormat.SPECIAL }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 999, length);
+            ConditionUse = conditionUse;
+            Bit = 121;
             Name = name;
         }
 
@@ -43,6 +98,7 @@ namespace ISONET.Domain.Entities.DataElements
         public override short Bit { get; }
 
         public override IConditionUse ConditionUse { get; }
+
         public override string Description { get; set; }
 
         public override string Name { get; }

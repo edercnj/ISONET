@@ -12,8 +12,7 @@ namespace ISONET.Domain.Services
 
         public static string ToBinaryString(string hexValue)
         {
-            return string.Join(string.Empty,
-                hexValue.Select(c => Convert.ToString(Convert.ToInt32(c.ToString(), 16), 2).PadLeft(4, '0')));
+            return string.Join(string.Empty, hexValue.Select(c => Convert.ToString(Convert.ToInt32(c.ToString(), 16), 2).PadLeft(4, '0')));
         }
 
         public static bool[] ToBitMap(string HexValue)

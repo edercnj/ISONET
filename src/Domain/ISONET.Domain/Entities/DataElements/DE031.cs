@@ -4,6 +4,27 @@ namespace ISONET.Domain.Entities.DataElements
 {
     public sealed class DE031 : DataElement
     {
+        //Custom Data Element
+        public DE031(IAtrribute attribute, IConditionUse conditionUse, string description, string name, object value)
+        {
+            Attribute = attribute;
+            Bit = 031;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+            Value = value;
+        }
+
+        //Custom Data Element
+        public DE031(IAtrribute attribute, IConditionUse conditionUse, string description, string name)
+        {
+            Attribute = attribute;
+            Bit = 031;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+        }
+
         public DE031(IConditionUse conditionUse, object value)
         {
             Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC, AttributeFormat.SPECIAL }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 99);
@@ -15,9 +36,7 @@ namespace ISONET.Domain.Entities.DataElements
 
         public DE031(IConditionUse conditionUse)
         {
-            Attribute =
-                new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC, AttributeFormat.SPECIAL },
-                    LengthType.LLVAR, new[] { AttributeMask.NoMask }, 99);
+            Attribute = new Atrribute(new[] { AttributeFormat.ALPHABETICAL, AttributeFormat.NUMERIC, AttributeFormat.SPECIAL }, LengthType.LLVAR, new[] { AttributeMask.NoMask }, 99);
             ConditionUse = conditionUse;
             Bit = 031;
             Name = "acquirer reference data";
