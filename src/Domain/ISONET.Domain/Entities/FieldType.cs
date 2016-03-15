@@ -2,9 +2,9 @@
 {
     public enum FieldType
     {
-        Header = 0,
-        BitMap = 1,
-        DataElement = 2,
-        Mti = 3
+        Header = 2,
+        BitMap = 4,
+        DataElement = 8,
+        Mti = 16
     }
 }

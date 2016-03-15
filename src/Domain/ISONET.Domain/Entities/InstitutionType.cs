@@ -2,7 +2,7 @@
 {
     public enum InstitutionType
     {
-        Acquirer,
-        Issuer
+        Acquirer = 2,
+        Issuer = 4
     }
 }

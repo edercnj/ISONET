@@ -47,6 +47,7 @@ namespace ISONET.Domain.Entities.DataElements
         public override short Bit { get; }
 
         public override IConditionUse ConditionUse { get; }
+
         public override string Description { get; set; }
 
         public override string Name { get; }

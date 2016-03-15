@@ -4,12 +4,10 @@ namespace ISONET.Domain.Entities
 {
     public class PointOfService : IPointOfService
     {
-        public PointOfService(string cardDataInputCapability, string cardholderAuthenticationCapability,
-            string cardCaptureCapability,
-            string operatingEnvironment, string cardholderPresent, string cardPresent, string cardDataInputMode,
-            string cardholderAuthenticationMethod, string cardholderAuthenticationEntity,
-            string cardDataOutputCapability,
-            string terminalOutputCapability, string pinCaptureCapability)
+        public PointOfService(string cardDataInputCapability, string cardholderAuthenticationCapability, string cardCaptureCapability,
+                              string operatingEnvironment, string cardholderPresent, string cardPresent,
+                              string cardDataInputMode, string cardholderAuthenticationMethod, string cardholderAuthenticationEntity,
+                              string cardDataOutputCapability, string terminalOutputCapability, string pinCaptureCapability)
         {
             CardDataInputCapability = cardDataInputCapability;
             CardholderAuthenticationCapability = cardholderAuthenticationCapability;
@@ -40,11 +38,9 @@ namespace ISONET.Domain.Entities
 
         public override string ToString()
         {
-            return CardDataInputCapability + CardholderAuthenticationCapability + CardCaptureCapability +
-                   OperatingEnvironment +
-                   CardholderPresent + CardPresent + CardDataInputMode + CardholderAuthenticationMethod +
-                   CardholderAuthenticationEntity + CardDataOutputCapability + TerminalOutputCapability +
-                   PINCaptureCapability;
+            return CardDataInputCapability + CardholderAuthenticationCapability + CardCaptureCapability + OperatingEnvironment + CardholderPresent +
+                   CardPresent + CardDataInputMode + CardholderAuthenticationMethod + CardholderAuthenticationEntity + CardDataOutputCapability +
+                   TerminalOutputCapability + PINCaptureCapability;
         }
     }
 }

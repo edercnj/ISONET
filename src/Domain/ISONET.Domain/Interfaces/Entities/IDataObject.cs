@@ -3,7 +3,7 @@
     /// <summary>
     ///     Interface para abstração de tags TLV.
     /// </summary>
-    public interface ITypeLengthValue
+    public interface IDataObject
     {
         string Type { get; set; }
 

@@ -55,6 +55,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Domain\AttributeFormatTest.cs" />
     <Compile Include="Domain\ConvertTest.cs" />
     <Compile Include="Domain\LengthTypeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

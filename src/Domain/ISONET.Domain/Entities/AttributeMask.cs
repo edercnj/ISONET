@@ -2,12 +2,12 @@
 {
     public enum AttributeMask
     {
-        NoMask,
-        MM,
-        DD,
-        YY,
-        hh,
-        mm,
-        ss
+        NoMask = 2,
+        MM = 4,
+        DD = 8,
+        YY = 16,
+        hh = 32,
+        mm = 64,
+        ss = 128
     }
 }

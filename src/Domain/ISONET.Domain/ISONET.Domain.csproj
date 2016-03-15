@@ -181,7 +181,7 @@
     <Compile Include="Entities\Message.cs" />
     <Compile Include="Entities\PointOfService.cs" />
     <Compile Include="Entities\Template.cs" />
-    <Compile Include="Entities\TypeLengthValue.cs" />
+    <Compile Include="Entities\DataObject.cs" />
     <Compile Include="Interfaces\Entities\IAction.cs" />
     <Compile Include="Interfaces\Entities\IAtrribute.cs" />
     <Compile Include="Interfaces\Entities\IConditionUse.cs" />
@@ -194,8 +194,9 @@
     <Compile Include="Interfaces\Entities\IMessageReason.cs" />
     <Compile Include="Interfaces\Entities\IPointOfService.cs" />
     <Compile Include="Interfaces\Entities\ITemplate.cs" />
-    <Compile Include="Interfaces\Entities\ITypeLengthValue.cs" />
+    <Compile Include="Interfaces\Entities\IDataObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AttributeFormatValidation.cs" />
     <Compile Include="Services\BitMapConvert.cs" />
     <Compile Include="Services\DataConvert.cs" />
     <Compile Include="Services\DataElementBitValidation.cs" />

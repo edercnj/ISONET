@@ -3,20 +3,22 @@
 namespace ISONET.Domain.Entities
 {
     /// <summary>
-    ///     Implementação do formato TLV atraves de classes.
+    ///     TLV Data Object
     /// </summary>
-    public class TypeLengthValue : ITypeLengthValue
+    public class DataObject : IDataObject
     {
-        public TypeLengthValue(int length, string type, object value)
+        public DataObject(int length, string type, object value)
         {
             Length = length;
             Type = type;
             Value = value;
         }
 
-        /// <summary>
-        ///     Identificador da TAG, este valor necessita ser único para cada TAG em uma lista.
-        /// </summary>
+        public DataObject(string type)
+        {
+            Type = type;
+        }
+
         public string Type { get; set; }
 
         public int Length { get; set; }
