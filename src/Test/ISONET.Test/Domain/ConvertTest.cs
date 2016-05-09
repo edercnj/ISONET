@@ -14,8 +14,7 @@ namespace ISONET.Test.Domain
         [TestInitialize]
         public void TestInitialize()
         {
-            _binaryString =
-                "00100010001110000000000000000000000000011100000000000000010100000010001000111000000000000000000000000001110000000000000001010000";
+            _binaryString = "00100010001110000000000000000000000000011100000000000000010100000010001000111000000000000000000000000001110000000000000001010000";
             _hexaString = "2238000001C000502238000001C00050";
 
             _binaryBoolArray = new[]
@@ -25,7 +24,7 @@ namespace ISONET.Test.Domain
                 false, false, false, false, false, false, false, false,
                 false, false, false, false, false, false, false, false,
                 false, false, false, false, false, false, false, true,
-                true, true, false, false, false, false, false, false,
+                true,  true, false, false, false, false, false, false,
                 false, false, false, false, false, false, false, false,
                 false, true, false, true, false, false, false, false,
                 false, false, true, false, false, false, true, false,

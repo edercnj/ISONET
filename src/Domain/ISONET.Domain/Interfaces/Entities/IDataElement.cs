@@ -2,9 +2,9 @@
 {
     public interface IDataElement
     {
-        IAtrribute Attribute { get; }
+        IAttribute Attribute { get; }
         short Bit { get; }
-        IConditionUse ConditionUse { get; }
+        IRule ConditionUse { get; }
         string Description { get; set; }
         string Name { get; }
         object Value { get; set; }

@@ -3,15 +3,21 @@
 namespace ISONET.Domain.Entities
 {
     /// <summary>
-    ///     TLV Data Object
+    /// <para>A data object consists of a tag, a length, and a value. A tag uniquely identifies a data object within the environment of an application.</para>
     /// </summary>
     public class DataObject : IDataObject
     {
-        public DataObject(int length, string type, object value)
+        public DataObject(string type, int length, object value)
         {
             Length = length;
             Type = type;
             Value = value;
+        }
+
+        public DataObject(string type, int length)
+        {
+            Length = length;
+            Type = type;
         }
 
         public DataObject(string type)

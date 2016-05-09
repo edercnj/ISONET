@@ -3,14 +3,33 @@ using System;
 
 namespace ISONET.Domain.Entities
 {
-    public abstract class DataElement : IDataElement
+    public class DataElement : IDataElement
     {
-        public abstract IAtrribute Attribute { get; }
-        public abstract short Bit { get; }
-        public abstract IConditionUse ConditionUse { get; }
-        public abstract string Description { get; set; }
-        public abstract string Name { get; }
-        public abstract object Value { get; set; }
+        public DataElement(IAttribute attribute, short bit, IRule conditionUse, string description, string name, object value)
+        {
+            Attribute = attribute;
+            Bit = bit;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+            Value = value;
+        }
+
+        public DataElement(IAttribute attribute, short bit, IRule conditionUse, string description, string name)
+        {
+            Attribute = attribute;
+            Bit = bit;
+            ConditionUse = conditionUse;
+            Description = description;
+            Name = name;
+        }
+
+        public IAttribute Attribute { get; }
+        public short Bit { get; }
+        public IRule ConditionUse { get; }
+        public string Description { get; set; }
+        public string Name { get; }
+        public object Value { get; set; }
 
         public override string ToString()
         {

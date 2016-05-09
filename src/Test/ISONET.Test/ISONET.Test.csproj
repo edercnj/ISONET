@@ -67,7 +67,7 @@
     </ProjectReference>
     <ProjectReference Include="..\..\Domain\ISONET.Domain\ISONET.Domain.csproj">
       <Project>{bc997cc3-9413-42fd-a401-bfeceefd0ffa}</Project>
-      <Name>Odin.Domain</Name>
+      <Name>ISONET.Domain</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

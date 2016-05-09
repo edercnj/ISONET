@@ -35,7 +35,7 @@ namespace ISONET.Domain.Entities
         public override string ToString()
         {
             //TODO: Efetuar a implementação correta para retornar o bitMap no formato que o mesmo foi recebido.
-            return Mti + DataElements.Aggregate(Header + BitMapConvert.BitMapToString(BitMap), (current, element) => current + element.ToString());
+            return Header + DataElements.Aggregate(Mti + BitMapConvert.BitMapToString(BitMap), (current, element) => current + element.ToString());
         }
     }
 }
