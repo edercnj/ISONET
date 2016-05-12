@@ -1,10 +1,12 @@
-﻿namespace ISONET.Domain.Services
+﻿using ISONET.Domain.Interfaces.Entities;
+
+namespace ISONET.Domain.Services
 {
     public static class DataElementBitValidation
     {
-        public static bool IsValid(int bit)
+        public static bool BitIsValid(this IDataElement dataElement)
         {
-            bool isValid = (bit < 1) || (bit > 128);
+            bool isValid = (dataElement.Bit >= 1) || (dataElement.Bit <= 128);
 
             return isValid;
         }

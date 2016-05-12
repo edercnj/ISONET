@@ -2,9 +2,6 @@
 
 namespace ISONET.Domain.Entities
 {
-    /// <summary>
-    /// <para>A data object consists of a tag, a length, and a value. A tag uniquely identifies a data object within the environment of an application.</para>
-    /// </summary>
     public class DataObject : IDataObject
     {
         public DataObject(string type, int length, object value)
@@ -29,9 +26,13 @@ namespace ISONET.Domain.Entities
 
         public int Length { get; set; }
 
-        public object Value { get; set; }
+        public object Value
+        {
+            get { return Value.ToString(); }
+            set { Value = value; }
+        }
 
-        public override string ToString()
+        public string toTypeLengthValue()
         {
             return Type + Length + Value;
         }

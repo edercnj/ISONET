@@ -1,12 +1,16 @@
-﻿namespace ISONET.Domain.Interfaces.Entities
+﻿using System.Collections.Generic;
+
+namespace ISONET.Domain.Interfaces.Entities
 {
     public interface IDataElement
     {
         IAttribute Attribute { get; }
         short Bit { get; }
-        IRule ConditionUse { get; }
+        IRule Rule { get; }
         string Description { get; set; }
         string Name { get; }
-        object Value { get; set; }
+        IList<IDataObject> DataObjects { get; set; }
+
+        string toTypeLengthValue();
     }
 }

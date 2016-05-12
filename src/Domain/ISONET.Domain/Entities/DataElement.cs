@@ -1,56 +1,45 @@
 ﻿using ISONET.Domain.Interfaces.Entities;
-using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ISONET.Domain.Entities
 {
     public class DataElement : IDataElement
     {
-        public DataElement(IAttribute attribute, short bit, IRule conditionUse, string description, string name, object value)
+        public DataElement(IAttribute attribute, short bit, IRule rule, string description, string name, IList<IDataObject> dataObjects)
         {
             Attribute = attribute;
             Bit = bit;
-            ConditionUse = conditionUse;
+            Rule = rule;
             Description = description;
             Name = name;
-            Value = value;
+            DataObjects = dataObjects;
         }
 
-        public DataElement(IAttribute attribute, short bit, IRule conditionUse, string description, string name)
+        public DataElement(IAttribute attribute, short bit, IRule rule, string description, string name)
         {
             Attribute = attribute;
             Bit = bit;
-            ConditionUse = conditionUse;
+            Rule = rule;
             Description = description;
             Name = name;
         }
 
         public IAttribute Attribute { get; }
         public short Bit { get; }
-        public IRule ConditionUse { get; }
+        public IRule Rule { get; }
         public string Description { get; set; }
         public string Name { get; }
-        public object Value { get; set; }
+        public IList<IDataObject> DataObjects { get; set; }
 
         public override string ToString()
         {
-            string value = string.Empty;
+            return DataObjects.Aggregate(string.Empty, (current, data) => current + data.Value);
+        }
 
-            switch (Attribute.LengthType)
-            {
-                case LengthType.LLLVAR:
-                    value = Convert.ToString(Value.ToString().Length.ToString("D3")) + Value;
-                    break;
-
-                case LengthType.LLVAR:
-                    value = Convert.ToString(Value.ToString().Length.ToString("D3")) + Value;
-                    break;
-
-                case LengthType.FIXED:
-                    value = Value.ToString();
-                    break;
-            }
-
-            return value;
+        public string toTypeLengthValue()
+        {
+            return DataObjects.Aggregate(string.Empty, (current, data) => current + data.toTypeLengthValue());
         }
     }
 }

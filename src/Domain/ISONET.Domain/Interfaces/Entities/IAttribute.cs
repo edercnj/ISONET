@@ -1,17 +1,20 @@
 ﻿using ISONET.Domain.Entities;
+using System.Collections.Generic;
 
 namespace ISONET.Domain.Interfaces.Entities
 {
     public interface IAttribute
     {
-        AttributeFormat[] AttributeFormat { get; }
+        IList<AttributeFormat> AttributeFormat { get; }
 
         LengthType LengthType { get; }
 
-        AttributeMask[] AttributeMask { get; }
+        IList<AttributeMask> AttributeMask { get; }
 
         short MaxLength { get; }
 
         short Length { get; }
+
+        int AttributeFormatToInt(IList<AttributeFormat> att);
     }
 }

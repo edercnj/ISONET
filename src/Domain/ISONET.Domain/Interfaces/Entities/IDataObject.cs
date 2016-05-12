@@ -10,5 +10,7 @@
         int Length { get; set; }
 
         object Value { get; set; }
+
+        string toTypeLengthValue();
     }
 }

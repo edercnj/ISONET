@@ -1,19 +1,21 @@
 ﻿using ISONET.Domain.Interfaces.Entities;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ISONET.Domain.Entities
 {
     public class Attribute : IAttribute
     {
-        public Attribute(AttributeFormat[] characterFormat, LengthType lengthType, AttributeMask[] attributeMask, short maxLength)
+        public Attribute(IList<AttributeFormat> attributeFormat, LengthType lengthType, IList<AttributeMask> attributeMask, short maxLength)
         {
-            AttributeFormat = characterFormat;
+            AttributeFormat = attributeFormat;
             LengthType = lengthType;
             AttributeMask = attributeMask;
             MaxLength = maxLength;
             Length = MaxLength;
         }
 
-        public Attribute(AttributeFormat[] attributeFormat, LengthType lengthType, AttributeMask[] attributeMask, short maxLength, short length)
+        public Attribute(IList<AttributeFormat> attributeFormat, LengthType lengthType, IList<AttributeMask> attributeMask, short maxLength, short length)
         {
             AttributeFormat = attributeFormat;
             AttributeMask = attributeMask;
@@ -22,14 +24,19 @@ namespace ISONET.Domain.Entities
             Length = lengthType != LengthType.FIXED ? length : maxLength;
         }
 
-        public AttributeFormat[] AttributeFormat { get; }
+        public IList<AttributeFormat> AttributeFormat { get; }
 
-        public AttributeMask[] AttributeMask { get; }
+        public IList<AttributeMask> AttributeMask { get; }
 
         public LengthType LengthType { get; }
 
         public short MaxLength { get; }
 
         public short Length { get; }
+
+        public int AttributeFormatToInt(IList<AttributeFormat> att)
+        {
+            return att.Sum(attr => (int)attr);
+        }
     }
 }

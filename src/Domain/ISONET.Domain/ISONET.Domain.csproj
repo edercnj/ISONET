@@ -40,13 +40,7 @@
     <Compile Include="Entities\AttributeMask.cs" />
     <Compile Include="Entities\Rule.cs" />
     <Compile Include="Entities\Field.cs" />
-    <Compile Include="Entities\FieldType.cs" />
-    <Compile Include="Entities\Function.cs" />
-    <Compile Include="Entities\Institution.cs" />
-    <Compile Include="Entities\Country.cs" />
-    <Compile Include="Entities\Currency.cs" />
     <Compile Include="Entities\DataElement.cs" />
-    <Compile Include="Entities\InstitutionType.cs" />
     <Compile Include="Entities\LengthType.cs" />
     <Compile Include="Entities\Message.cs" />
     <Compile Include="Entities\Template.cs" />
@@ -56,7 +50,6 @@
     <Compile Include="Interfaces\Entities\IDataElement.cs" />
     <Compile Include="Interfaces\Entities\IField.cs" />
     <Compile Include="Interfaces\Entities\IFunction.cs" />
-    <Compile Include="Interfaces\Entities\IInstitution.cs" />
     <Compile Include="Interfaces\Entities\IMessage.cs" />
     <Compile Include="Interfaces\Entities\IMessageReason.cs" />
     <Compile Include="Interfaces\Entities\ITemplate.cs" />
@@ -68,7 +61,7 @@
     <Compile Include="Services\DataElementBitValidation.cs" />
     <Compile Include="Services\DataElementNameValidation.cs" />
     <Compile Include="Services\DataElementValidation.cs" />
-    <Compile Include="Services\DataElementValueValidation.cs" />
+    <Compile Include="Services\DataObjectsValidation.cs" />
     <Compile Include="Services\LengthTypeValidation.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -76,9 +69,6 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
-  </ItemGroup>
-  <ItemGroup>
-    <TypeScriptCompile Include="Interfaces\Entities\IAttribute.ts" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -61,25 +61,31 @@ namespace ISONET.Test.Domain
         [TestMethod]
         public void ToBinaryString_Hexa_Value_hexaString_Must_Equals_binaryString()
         {
-            Assert.AreEqual(DataConvert.ToBinaryString(_hexaString), _binaryString);
+            Assert.AreEqual(_hexaString.HexToBinaryString(), _binaryString);
+        }
+
+        [TestMethod]
+        public void BinaryStringToHexa_BinaryString_Must_Equals_Hexa()
+        {
+            Assert.AreEqual(_binaryString.BinaryStringToHexa(), _hexaString);
         }
 
         [TestMethod]
         public void ToBitMap_hexaString_Must_Be_Equals_binaryBoolArray()
         {
-            CollectionAssert.AreEqual(DataConvert.ToBitMap(_hexaString), _binaryBoolArray);
+            CollectionAssert.AreEqual(_hexaString.HexToBitMapBoolArray(), _binaryBoolArray);
         }
 
         [TestMethod]
         public void ToCharArray_binaryString_Must_Be_Equals_charArray()
         {
-            CollectionAssert.AreEqual(DataConvert.ToCharArray(_binaryString), _charArray);
+            CollectionAssert.AreEqual(DataConvert.BinaryStringToCharArray(_binaryString), _charArray);
         }
 
         [TestMethod]
         public void ToBoolArray_charArray_Must_Be_Equals_binaryBoolArray()
         {
-            CollectionAssert.AreEqual(DataConvert.ToBoolArray(_charArray), _binaryBoolArray);
+            CollectionAssert.AreEqual(_charArray.BinaryCharArrayToBoolArray(), _binaryBoolArray);
         }
     }
 }

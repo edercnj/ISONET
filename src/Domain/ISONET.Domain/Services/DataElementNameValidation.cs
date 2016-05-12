@@ -1,10 +1,12 @@
-﻿namespace ISONET.Domain.Services
+﻿using ISONET.Domain.Interfaces.Entities;
+
+namespace ISONET.Domain.Services
 {
     public static class DataElementNameValidation
     {
-        public static bool IsValid(string name)
+        public static bool NameIsValid(this IDataElement dataElement)
         {
-            bool isValid = !string.IsNullOrEmpty(name);
+            bool isValid = !string.IsNullOrEmpty(dataElement.Name);
 
             return isValid;
         }

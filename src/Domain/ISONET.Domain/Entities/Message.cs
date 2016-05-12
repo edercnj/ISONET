@@ -15,18 +15,7 @@ namespace ISONET.Domain.Entities
             Header = header;
         }
 
-        public Message(int mti, IInstitution institution, string messageName, bool[] bitMap, IDataElement[] dataElements, string header = "")
-        {
-            Mti = mti;
-            Institution = institution;
-            MessageName = messageName;
-            BitMap = bitMap;
-            DataElements = dataElements;
-            Header = header;
-        }
-
         public int Mti { get; set; }
-        public IInstitution Institution { get; set; }
         public string MessageName { get; set; }
         public bool[] BitMap { get; set; }
         public IDataElement[] DataElements { get; set; }
