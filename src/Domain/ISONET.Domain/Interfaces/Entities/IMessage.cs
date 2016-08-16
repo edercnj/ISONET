@@ -1,4 +1,6 @@
-﻿namespace ISONET.Domain.Interfaces.Entities
+﻿using System.Collections.Generic;
+
+namespace ISONET.Domain.Interfaces.Entities
 {
     public interface IMessage
     {
@@ -6,6 +8,8 @@
         int Mti { get; set; }
         string MessageName { get; set; }
         bool[] BitMap { get; set; }
-        IDataElement[] DataElements { get; set; }
+        IEnumerable<IDataElement> DataElements { get; set; }
+
+        IEnumerable<IDataElement> Split(string isoMessage);
     }
 }

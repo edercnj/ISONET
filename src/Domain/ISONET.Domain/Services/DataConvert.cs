@@ -68,5 +68,28 @@ namespace ISONET.Domain.Services
 
             return result.ToString();
         }
+
+        public static string BoolArrayToHexa(this bool[] bitMap)
+        {
+            try
+            {
+                string stringBitMap = string.Empty;
+                for (int index = 0; index < bitMap.Length; index++)
+                {
+                    bool bit = bitMap[index];
+                    if (bit)
+                        stringBitMap += "1";
+                    else
+                        stringBitMap += "0";
+                }
+
+                return stringBitMap.BinaryStringToHexa();
+            }
+            catch (Exception erro)
+            {
+                //TODO: Implementar tratamentos de exceção personalizados.
+                throw new Exception("Erro ao converter o map de Bits para string: " + erro.Message);
+            }
+        }
     }
 }

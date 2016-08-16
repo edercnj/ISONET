@@ -1,42 +1,42 @@
 ﻿using ISONET.Domain.Interfaces.Entities;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace ISONET.Domain.Entities
 {
-    public class Attribute : IAttribute
-    {
-        public Attribute(IList<AttributeFormat> attributeFormat, LengthType lengthType, IList<AttributeMask> attributeMask, short maxLength)
-        {
-            AttributeFormat = attributeFormat;
-            LengthType = lengthType;
-            AttributeMask = attributeMask;
-            MaxLength = maxLength;
-            Length = MaxLength;
-        }
+	public class Attribute : IAttribute
+	{
+		private IEnumerable<AttributeFormat> _attributeFormat;
+		private IEnumerable<AttributeMask> _attributeMask;
+		private LengthType _lengthType;
+		private short _maxLength;
+		private short _length;
 
-        public Attribute(IList<AttributeFormat> attributeFormat, LengthType lengthType, IList<AttributeMask> attributeMask, short maxLength, short length)
-        {
-            AttributeFormat = attributeFormat;
-            AttributeMask = attributeMask;
-            LengthType = lengthType;
-            MaxLength = maxLength;
-            Length = lengthType != LengthType.FIXED ? length : maxLength;
-        }
+		public Attribute(IEnumerable<AttributeFormat> attributeFormat, LengthType lengthType, IEnumerable<AttributeMask> attributeMask, short maxLength)
+		{
+			AttributeFormat = attributeFormat;
+			LengthType = lengthType;
+			AttributeMask = attributeMask;
+			MaxLength = maxLength;
+			Length = MaxLength;
+		}
 
-        public IList<AttributeFormat> AttributeFormat { get; }
+		public Attribute(IEnumerable<AttributeFormat> attributeFormat, LengthType lengthType, IEnumerable<AttributeMask> attributeMask, short maxLength, short length)
+		{
+			AttributeFormat = attributeFormat;
+			AttributeMask = attributeMask;
+			LengthType = lengthType;
+			MaxLength = maxLength;
+			Length = length;
+		}
 
-        public IList<AttributeMask> AttributeMask { get; }
+		public IEnumerable<AttributeFormat> AttributeFormat { get { return _attributeFormat; } private set { _attributeFormat = value; } }
 
-        public LengthType LengthType { get; }
+		public IEnumerable<AttributeMask> AttributeMask { get { return _attributeMask; } private set { _attributeMask = value; } }
 
-        public short MaxLength { get; }
+		public LengthType LengthType { get { return _lengthType; } private set { _lengthType = value; } }
 
-        public short Length { get; }
+		public short MaxLength { get { return _maxLength; } private set { _maxLength = value; } }
 
-        public int AttributeFormatToInt(IList<AttributeFormat> att)
-        {
-            return att.Sum(attr => (int)attr);
-        }
-    }
+		public short Length { get { return _length; } private set { _length = value; } }
+	}
 }

@@ -1,5 +1,4 @@
 ﻿using ISONET.Domain.Interfaces.Entities;
-using System.Collections.Generic;
 
 namespace ISONET.Domain.Services
 {
@@ -7,7 +6,7 @@ namespace ISONET.Domain.Services
     {
         public static bool IsValid(this IDataElement dataElement)
         {
-            return dataElement.BitIsValid() && dataElement.NameIsValid() && dataElement.DataObjectsIsValid();
+            return dataElement.BitIsValid() && dataElement.NameIsValid() && dataElement.ValueIsValid();
         }
     }
 }

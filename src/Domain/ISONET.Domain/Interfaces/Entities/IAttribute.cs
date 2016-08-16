@@ -3,18 +3,16 @@ using System.Collections.Generic;
 
 namespace ISONET.Domain.Interfaces.Entities
 {
-    public interface IAttribute
-    {
-        IList<AttributeFormat> AttributeFormat { get; }
+	public interface IAttribute
+	{
+		IEnumerable<AttributeFormat> AttributeFormat { get; }
 
-        LengthType LengthType { get; }
+		LengthType LengthType { get; }
 
-        IList<AttributeMask> AttributeMask { get; }
+		IEnumerable<AttributeMask> AttributeMask { get; }
 
-        short MaxLength { get; }
+		short MaxLength { get; }
 
-        short Length { get; }
-
-        int AttributeFormatToInt(IList<AttributeFormat> att);
-    }
+		short Length { get; }
+	}
 }

@@ -4,7 +4,7 @@ namespace ISONET.Domain.Entities
 {
     public class DataObject : IDataObject
     {
-        public DataObject(string type, int length, object value)
+        public DataObject(string type, int length, string value)
         {
             Length = length;
             Type = type;
@@ -17,20 +17,10 @@ namespace ISONET.Domain.Entities
             Type = type;
         }
 
-        public DataObject(string type)
-        {
-            Type = type;
-        }
-
         public string Type { get; set; }
-
         public int Length { get; set; }
 
-        public object Value
-        {
-            get { return Value.ToString(); }
-            set { Value = value; }
-        }
+        public string Value { get; set; }
 
         public string toTypeLengthValue()
         {

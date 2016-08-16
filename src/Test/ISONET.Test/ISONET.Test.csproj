@@ -7,7 +7,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ISONET.Test</RootNamespace>
-    <AssemblyName>Test</AssemblyName>
+    <AssemblyName>IsoNetTest</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -55,9 +55,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Domain\AttributeFormatTest.cs" />
-    <Compile Include="Domain\ConvertTest.cs" />
-    <Compile Include="Domain\LengthTypeTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +66,9 @@
       <Project>{bc997cc3-9413-42fd-a401-bfeceefd0ffa}</Project>
       <Name>ISONET.Domain</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Domain\" />
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
