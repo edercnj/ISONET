@@ -1,5 +1,5 @@
-﻿using ISONET.Domain.Interfaces.Entities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using ISONET.Domain.Interfaces.Entities;
 
 namespace ISONET.Domain.Entities
 {

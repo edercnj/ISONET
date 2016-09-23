@@ -1,7 +1,7 @@
-﻿using ISONET.Domain.Entities;
-using ISONET.Domain.Interfaces.Entities;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using ISONET.Domain.Entities;
+using ISONET.Domain.Interfaces.Entities;
 
 namespace ISONET.Domain.Services
 {

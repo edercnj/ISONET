@@ -19,7 +19,6 @@ namespace ISONET.Domain.Entities
 
         public string Type { get; set; }
         public int Length { get; set; }
-
         public string Value { get; set; }
 
         public string toTypeLengthValue()
