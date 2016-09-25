@@ -47,9 +47,7 @@
     <Compile Include="Interfaces\Entities\IAttribute.cs" />
     <Compile Include="Interfaces\Entities\IRule.cs" />
     <Compile Include="Interfaces\Entities\IDataElement.cs" />
-    <Compile Include="Interfaces\Entities\IFunction.cs" />
     <Compile Include="Interfaces\Entities\IMessage.cs" />
-    <Compile Include="Interfaces\Entities\IMessageReason.cs" />
     <Compile Include="Interfaces\Entities\IDataObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AttributeFormatValidation.cs" />
