@@ -10,6 +10,5 @@ namespace ISONET.Domain.Interfaces.Entities
         bool[] BitMap { get; set; }
         IEnumerable<IDataElement> DataElements { get; set; }
 
-        IEnumerable<IDataElement> Split(string isoMessage);
     }
 }

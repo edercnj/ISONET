@@ -2,12 +2,10 @@
 {
     public interface IDataObject
     {
-        string Type { get; set; }
+        string Type { get; }
 
-        int Length { get; set; }
+        short Length { get; }
 
         string Value { get; set; }
-
-        string toTypeLengthValue();
     }
 }

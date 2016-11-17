@@ -4,11 +4,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ISONET.Test")]
+[assembly: AssemblyTitle("ISONET.Domain.Core")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ISONET.Test")]
+[assembly: AssemblyProduct("ISONET.Domain.Core")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("2b5f4141-d3ab-429b-83e8-0c394e9d15b2")]
+[assembly: Guid("8ddae792-398a-47d2-86b1-fb4989fb63ac")]
 
 // Version information for an assembly consists of the following four values:
 //

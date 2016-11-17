@@ -1,4 +1,5 @@
 ﻿using ISONET.Domain.Interfaces.Entities;
+using ISONET.Domain.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ namespace ISONET.Domain.Entities
 {
     public class DataElement : IDataElement
     {
-        private IAttribute _attribute;
+        private IDataElementAttribute _dataElementAttribute;
         private short _bit;
         private string _description;
         private string _name;
@@ -15,89 +16,86 @@ namespace ISONET.Domain.Entities
         private string _value;
         private IEnumerable<IDataObject> _dataObjects;
 
-        public DataElement(IAttribute attribute, short bit, string description, string name, ConditionUse conditionUse, string value)
+        public DataElement(IDataElementAttribute dataElementAttribute, short bit, string description, string name, ConditionUse conditionUse, string value) : this(dataElementAttribute, bit, description, name, conditionUse)
         {
-            Attribute = attribute;
-            Bit = bit;
-            Description = description;
-            Name = name;
+            if (dataElementAttribute.Length != value.Length)
+                throw new ApplicationException($"Tamanho do dataElementAttribute.Length diferente do tamanho do parâmetro value.Length.");
+
             Value = value;
-            ConditionUse = conditionUse;
         }
 
-        public DataElement(IAttribute attribute, short bit, string description, string name, ConditionUse conditionUse)
+        public DataElement(IDataElementAttribute dataElementAttribute, short bit, string description, string name, ConditionUse conditionUse, IEnumerable<IDataObject> dataObjects) : this(dataElementAttribute, bit, description, name, conditionUse)
         {
-            Attribute = attribute;
+            if (dataElementAttribute.Length != dataObjects.Aggregate(string.Empty, (current, data) => current + data.ToString()).Length)
+                throw new ApplicationException($"Tamanho de dataElementAttribute.Length diferente do tamanho retornado pelo método 'dataObjects.Aggregate(string.Empty, (current, data) => current + data.ToString()).Length'.");
+
+            DataObjects = dataObjects;
+            Value = ToString();
+        }
+
+        public DataElement(IDataElementAttribute dataElementAttribute, short bit, string description, string name, ConditionUse conditionUse)
+        {
+            if (!dataElementAttribute.IsValid())
+                throw new ApplicationException(@"DataElementAttribute inválido.");
+
+            DataElementAttribute = dataElementAttribute;
             Bit = bit;
             Description = description;
             Name = name;
             ConditionUse = conditionUse;
         }
 
-        public IAttribute Attribute { get { return _attribute; } private set { _attribute = value; } }
+        public IDataElementAttribute DataElementAttribute { get { return _dataElementAttribute; } private set { _dataElementAttribute = value; } }
         public short Bit { get { return _bit; } private set { _bit = value; } }
         public string Description { get { return _description; } set { _description = value; } }
         public string Name { get { return _name; } private set { _name = value; } }
         public ConditionUse ConditionUse { get { return _conditionUse; } private set { _conditionUse = value; } }
-        public string Value { get { return _value; } set { _value = value; } }
-        public IEnumerable<IDataObject> DataObjects { get { return _dataObjects; } set { _dataObjects = value; } }
 
-        public string ToTypeLengthValue()
+        public string Value
         {
-            return DataObjects.Aggregate(string.Empty, (current, data) => current + data.toTypeLengthValue());
+            get { return _value; }
+            set
+            {
+                if (value.Equals(string.Empty) || value.Equals(null))
+                    throw new ApplicationException(@"Valor de 'DataElment.Value' não pode ser 'string.Empt' ou 'null'.");
+
+                _value = value;
+            }
         }
 
-        public override string ToString()
-        {
-            string value = string.Empty;
+        public IEnumerable<IDataObject> DataObjects { get { return _dataObjects; } set { _dataObjects = value; } }
 
-            switch (Attribute.LengthType)
+        public sealed override string ToString()
+        {
+            string value;
+
+            switch (DataElementAttribute.LengthType)
             {
                 case LengthType.LLLVAR:
-                    value = Convert.ToString(Value.Length.ToString("D3")) + Value;
+                    value = DataObjects != null
+                           ? Convert.ToString(Value.Length.ToString(@"D3")) + DataObjects.Aggregate(string.Empty, (current, data) => current + data.ToString())
+                           : Convert.ToString(Value.Length.ToString(@"D3")) + Value;
                     break;
 
                 case LengthType.LLVAR:
-                    value = Convert.ToString(Value.Length.ToString("D2")) + Value;
+                    value = DataObjects != null
+                           ? Convert.ToString(Value.Length.ToString(@"D2")) + DataObjects.Aggregate(string.Empty, (current, data) => current + data.ToString())
+                           : Convert.ToString(Value.Length.ToString(@"D2")) + Value;
                     break;
 
                 case LengthType.FIXED:
-                    value = Value;
+                    value = DataObjects != null
+                           ? DataObjects.Aggregate(string.Empty, (current, data) => current + data.ToString())
+                           : Value;
+                    break;
+
+                default:
+                    value = DataObjects != null
+                           ? DataObjects.Aggregate(string.Empty, (current, data) => current + data.ToString())
+                           : Value;
                     break;
             }
-
             return value;
-        }
-
-        //TODO: Implementar tratamento de exceção personalizado
-        public IEnumerable<IDataObject> Split(string isoMessage)
-        {
-            try
-            {
-                IEnumerable<IDataObject> dataObjects = new List<IDataObject>();
-                int index = 0;
-
-                do
-                {
-                    string type = isoMessage.Substring(index, 4);
-                    index += type.Length;
-                    int length = int.Parse(isoMessage.Substring(index, 3));
-                    index += isoMessage.Substring(index, 3).Length;
-                    string value = isoMessage.Substring(index, length);
-                    index += value.Length;
-                    dataObjects.ToList().Add(new DataObject(type, length, value));
-                } while (index < isoMessage.Length);
-
-                return dataObjects;
-            }
-            catch (ApplicationException erro)
-            {
-                throw new ApplicationException(erro.Message);
-            }
-            catch (Exception erro)
-            {
-                throw new Exception(erro.Message);
-            }
         }
     }
 }

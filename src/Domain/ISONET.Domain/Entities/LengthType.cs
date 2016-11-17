@@ -2,8 +2,8 @@
 {
     public enum LengthType
     {
-        FIXED = 2,
-        LLVAR = 4,
-        LLLVAR = 8
+        FIXED = 0,
+        LLVAR = 2,
+        LLLVAR = 4
     }
 }

@@ -7,8 +7,8 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ISONET.Test</RootNamespace>
-    <AssemblyName>IsoNetTest</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <AssemblyName>ISONET.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -16,6 +16,7 @@
     <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
     <IsCodedUITest>False</IsCodedUITest>
     <TestProjectType>UnitTest</TestProjectType>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -52,7 +53,7 @@
   <ItemGroup>
     <Compile Include="Domain\AttributeFormatTest.cs" />
     <Compile Include="Domain\AttributeMaskTest.cs" />
-    <Compile Include="Domain\ConvertTest.cs" />
+    <Compile Include="Domain\ValueConvertTest.cs" />
     <Compile Include="Domain\DataElementTest.cs" />
     <Compile Include="Domain\DataObjectTest.cs" />
     <Compile Include="Domain\LengthTypeTest.cs" />
@@ -60,10 +61,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Application\ISONET.Application\ISONET.Application.csproj">
-      <Project>{df605b1a-923c-4bd6-b07b-04c4b2b227e5}</Project>
-      <Name>ISONET.Application</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\src\Domain\ISONET.Domain\ISONET.Domain.csproj">
       <Project>{bc997cc3-9413-42fd-a401-bfeceefd0ffa}</Project>
       <Name>ISONET.Domain</Name>
