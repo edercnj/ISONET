@@ -1,5 +1,6 @@
 ﻿using ISONET.Domain.Entities;
 using ISONET.Domain.Interfaces.Entities;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace ISONET.Domain.Services
@@ -13,7 +14,7 @@ namespace ISONET.Domain.Services
 
         private static bool ValidMask(string val, AttributeMask mask)
         {
-            var isValid = true;
+            bool isValid = true;
 
             switch (mask)
             {
@@ -44,6 +45,7 @@ namespace ISONET.Domain.Services
                 case AttributeMask.ss:
                     isValid = val.IsSecond();
                     break;
+                    
             }
 
             return isValid;
@@ -51,14 +53,14 @@ namespace ISONET.Domain.Services
 
         private static bool ValueMaskIsValid(IDataElement dataElement)
         {
-            var deMasks = dataElement.DataElementAttribute.AttributeMask.ToList();
-            var value = dataElement.Value;
-            var index = 0;
+            List<AttributeMask> deMasks = dataElement.DataElementAttribute.AttributeMask.ToList();
+            string value = dataElement.Value;
+            int index = 0;
             foreach (AttributeMask mask in deMasks)
             {
-                var val = value.Substring(index, 2);
+                string val = value.Substring(index, 2);
                 index += 2;
-                var isValid = ValidMask(val, mask);
+                bool isValid = ValidMask(val, mask);
                 if (!isValid)
                     return false;
             }

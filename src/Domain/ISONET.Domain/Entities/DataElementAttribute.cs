@@ -28,28 +28,35 @@ namespace ISONET.Domain.Entities
 
         public IEnumerable<AttributeFormat> AttributeFormat
         {
-            get { return _attributeFormat; }
-            private set
-            {
-                _attributeFormat = value.Distinct();
-            }
+            get => _attributeFormat;
+            private set => _attributeFormat = value.Distinct();
         }
 
         public IEnumerable<AttributeMask> AttributeMask
         {
-            get { return _attributeMask; }
-            private set
-            {
-                _attributeMask = value.Contains(Entities.AttributeMask.NoMask)
-                    ? new List<AttributeMask> { Entities.AttributeMask.NoMask }
-                    : value;
-            }
+            get => _attributeMask;
+            private set => _attributeMask = value.Contains(Entities.AttributeMask.NoMask)
+                ? new List<AttributeMask> { Entities.AttributeMask.NoMask }
+                : value;
+
         }
 
-        public LengthType LengthType { get { return _lengthType; } private set { _lengthType = value; } }
+        public LengthType LengthType
+        {
+            get => _lengthType;
+            private set => _lengthType = value;
+        }
 
-        public short MaxLength { get { return _maxLength; } private set { _maxLength = value; } }
+        public short MaxLength
+        {
+            get => _maxLength;
+            private set => _maxLength = value;
+        }
 
-        public short Length { get { return _length; } private set { _length = value; } }
+        public short Length
+        {
+            get => _length;
+            private set => _length = value;
+        }
     }
 }

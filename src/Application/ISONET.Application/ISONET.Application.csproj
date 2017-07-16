@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ISONET.Application</RootNamespace>
     <AssemblyName>ISONET.Application</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SccProjectName>SAK</SccProjectName>
     <SccLocalPath>SAK</SccLocalPath>
@@ -35,20 +35,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="DataElementApplication.cs" />
-    <Compile Include="DataElementAttributeApplication.cs" />
-    <Compile Include="DataObjectApplication.cs" />
-    <Compile Include="MessageApplication.cs" />
+    <Compile Include="Interfaces\IApplicationServiceBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Domain\ISONET.Domain\ISONET.Domain.csproj">
-      <Project>{BC997CC3-9413-42FD-A401-BFECEEFD0FFA}</Project>
-      <Name>ISONET.Domain</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

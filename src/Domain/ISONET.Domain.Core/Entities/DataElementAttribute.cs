@@ -1,16 +1,15 @@
-﻿using ISONET.Domain.Interfaces.Entities;
-using System;
+﻿using System;
 
 namespace ISONET.Domain.Core.Entities
 {
     [AttributeUsage(AttributeTargets.Property)]
     public sealed class DataElementAttribute : Attribute
     {
-        public IDataElement DataElement { get; }
+        public short Bit { get; }
 
-        public DataElementAttribute(IDataElement dataElement)
+        public DataElementAttribute(short bit)
         {
-            DataElement = dataElement;
+            Bit = bit;
         }
     }
 }

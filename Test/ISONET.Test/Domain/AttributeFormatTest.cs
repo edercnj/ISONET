@@ -47,5 +47,19 @@ namespace ISONET.Test.Domain
 
         [TestMethod]
         public void AttributeFormatTest_isXFormat_Must_Retun_False() => Assert.IsFalse(@"2238000001C000502238000001C000YYKK0".IsXFormat());
+
+        [TestMethod]
+        public void AttributeFormatTest_isISOTrack_Must_Retun_True() => Assert.IsTrue(@"5177560057276510=16052016373909290369".IsISOTrack());
+
+        [TestMethod]
+        public void AttributeFormatTest_isISOTrack_InvalidNumber_Must_Retun_False() => Assert.IsFalse(@"5000560057276510=16052016373909290369".IsISOTrack());
+
+        [TestMethod]
+        public void AttributeFormatTest_isISOTrack_InvalidSeparator_Must_Retun_False() => Assert.IsFalse(@"5177560057276510;16122016373909290369".IsISOTrack());
+
+        [TestMethod]
+        public void AttributeFormatTest_isISOTrack_InvalidExpiration_Must_Retun_False() => Assert.IsFalse(@"5177560057276510=16182016373909290369".IsISOTrack());
+        [TestMethod]
+        public void AttributeFormatTest_isISOTrack_InvalidServiceCode_Must_Retun_False() => Assert.IsFalse(@"5177560057276510=16058016373909290369".IsISOTrack());
     }
 }

@@ -2,7 +2,8 @@
 {
     public enum ConditionUse
     {
-        Optional = 0,
-        Mandatory = 1
+        Ausente = 0,
+        Mandatory = 1,
+        Optional = 2
     }
 }

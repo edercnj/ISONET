@@ -27,19 +27,35 @@ namespace ISONET.Domain.Entities
             BitMap = this.DataElementsToBitMap();
 
             if (!this.BitMapIsValid())
-                throw new ApplicationException(@"Mapa de Bits Inválido.");//TODO: Melhorar essa mensagem de Exceção.
+                throw new ApplicationException(@"Mapa de Bits Inválido.");//TODO: Melhorar essa mensagem de Exceção para identificar quais bits estão errados.
         }
 
-        public int Mti { get { return int.Parse(_mti.ToString(@"D4")); } set { _mti = value; } }
+        public int Mti
+        {
+            get => int.Parse(_mti.ToString(@"D4"));
+            set => _mti = value;
+        }
 
-        public string MessageName { get { return _messageName; } set { _messageName = value; } }
+        public string MessageName
+        {
+            get => _messageName;
+            set => _messageName = value;
+        }
 
-        public bool[] BitMap { get { return _bitMap; } set { _bitMap = value; } }
+        public bool[] BitMap { get => _bitMap; set => _bitMap = value; }
 
-        public IEnumerable<IDataElement> DataElements { get { return _dataElements; } set { _dataElements = value; } }
+        public IEnumerable<IDataElement> DataElements
+        {
+            get => _dataElements;
+            set => _dataElements = value;
+        }
 
-        public string Header { get { return _header; } set { _header = value; } }
+        public string Header
+        {
+            get => _header;
+            set => _header = value;
+        }
 
-        public sealed override string ToString() => (Header + Mti.ToString(@"D4") + BitMap.BoolArrayToHexa() + DataElements.Aggregate(string.Empty, (current, element) => current + element.ToString()));
+        public sealed override string ToString() => Header + Mti.ToString(@"D4") + BitMap.BoolArrayToHexa() + DataElements.Aggregate(string.Empty, (current, element) => current + element.ToString());
     }
 }

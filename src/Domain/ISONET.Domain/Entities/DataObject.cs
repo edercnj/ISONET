@@ -1,6 +1,6 @@
 ﻿using ISONET.Domain.Interfaces.Entities;
-using ISONET.Domain.Services;
 using System;
+using System.Collections.Generic;
 
 namespace ISONET.Domain.Entities
 {
@@ -10,7 +10,7 @@ namespace ISONET.Domain.Entities
         private string _type;
         private string _value;
 
-        public DataObject(string type, short length, string value) : this(type, length)
+        public DataObject(string type, short length, string value, IEnumerable<AttributeFormat> attributeFormat) : this(type, length, attributeFormat)
         {
             if (length != value.Length)
                 throw new ApplicationException($"Construtor inválido. Comprimento '{value.Length}' de value.Length é diferente da propriedade Length.");
@@ -18,19 +18,22 @@ namespace ISONET.Domain.Entities
             Value = value;
         }
 
-        public DataObject(string type, short length)
+        public DataObject(string type, short length, IEnumerable<AttributeFormat> attributeFormat)
         {
             Length = length;
+            AttributeFormat = attributeFormat;
             Type = type;
         }
 
+        public IEnumerable<AttributeFormat> AttributeFormat { get; }
+
         public short Length
         {
-            get { return _length; }
+            get => _length;
             private set
             {
-                if (value <= 0 || value > 999)
-                    throw new ApplicationException($"Tamanho '{value}' inválido. Valor deve estar entre 1 e 999");
+                if (value <= 0 || value > 992)
+                    throw new ApplicationException($"Length '{value}' inválido. Valor deve estar entre 1 e 992.");
 
                 _length = value;
             }
@@ -38,28 +41,19 @@ namespace ISONET.Domain.Entities
 
         public string Type
         {
-            get { return _type; }
+            get => _type;
             private set
             {
-                if (value.Length <= 0 || value.Length > 4)
-                    throw new ApplicationException($"Tamanho '{value.Length}' inválido. Propriedade Type deve possuir comprimento máximo de 4.");
-                if (value.ContainsSpaceAndPad())
-                    throw new ApplicationException($"Valor '{value}' Inválido. Propriedade Type não deve possuir espaços.");
-
+                if (value.Length != 4)
+                    throw new ApplicationException($"Type com tamanho '{value.Length}' inválido. Propriedade Type deve possuir comprimento 4.");
                 _type = value;
             }
         }
 
         public string Value
         {
-            get { return _value; }
-            set
-            {
-                if (Length != value.Length)
-                    throw new ApplicationException($"Tamanho inválido. Comprimento do value.Length={value} diferente do valor definido no campo Length={Length}.");
-
-                _value = value;
-            }
+            get => _value;
+            set => _value = value;
         }
 
         public sealed override string ToString()

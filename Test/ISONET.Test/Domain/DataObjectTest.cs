@@ -13,7 +13,7 @@ namespace ISONET.Test.Domain
         [TestInitialize]
         public void TestInitialize()
         {
-            do01 = new List<DataObject> { new DataObject(@"0001", 002, @"01"), new DataObject(@"0002", 003, @"003"), new DataObject(@"0003", 004, @"0004"), new DataObject(@"0004", 001, @"1") };
+            do01 = new List<DataObject> { new DataObject(@"0001", 002, @"01", new[] { AttributeFormat.Numeric }), new DataObject(@"0002", 003, @"003", new[] { AttributeFormat.Numeric }), new DataObject(@"0003", 004, @"0004", new[] { AttributeFormat.Numeric }), new DataObject(@"0004", 001, @"1", new[] { AttributeFormat.Numeric }) };
         }
 
         [TestMethod]
@@ -22,7 +22,7 @@ namespace ISONET.Test.Domain
         {
             try
             {
-                do02 = new List<DataObject> { new DataObject(@"0001", 002, @"0100") };
+                do02 = new List<DataObject> { new DataObject(@"0001", 002, @"0100", new[] { AttributeFormat.Numeric }) };
                 Assert.Fail(@"Este teste precisa falhar!");
             }
             catch (ApplicationException err)

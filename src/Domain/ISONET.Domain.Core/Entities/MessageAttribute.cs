@@ -1,16 +1,17 @@
-﻿using ISONET.Domain.Interfaces.Entities;
-using System;
+﻿using System;
 
 namespace ISONET.Domain.Core.Entities
 {
     [AttributeUsage(AttributeTargets.Class)]
     public sealed class MessageAttribute : Attribute
     {
-        public IMessage Message { get; }
+        public short Mti { get; }
+        public string Header { get; }
 
-        public MessageAttribute(IMessage message)
+        public MessageAttribute(short mti, string header)
         {
-            Message = message;
+            Mti = mti;
+            Header = header;
         }
     }
 }

@@ -10,17 +10,44 @@ namespace ISONET.Domain.Services
     {
         public static bool FormatIsValid(IDataElement dataElement) => ValueFormatIsValid(dataElement);
 
+        public static bool FormatIsValid(IDataObject dataObject) => ValueFormatIsValid(dataObject);
+
         private static bool ValueFormatIsValid(IDataElement dataElement)
         {
-            var isValid = true;
+            bool isValid = true;
             IEnumerable<AttributeFormat> valueAttributes = ValueToAttributeFormat(dataElement.ToString()).ToList();
             var dataElementAttributes = dataElement.DataElementAttribute.AttributeFormat.ToList();
 
             foreach (AttributeFormat att in valueAttributes)
             {
-                var contais = false;
+                bool contais = false;
 
                 foreach (AttributeFormat deAtt in dataElementAttributes)
+                {
+                    if ((int)att == (int)deAtt)
+                        contais = true;
+                }
+
+                if (contais == false)
+                {
+                    isValid = false;
+                    break;
+                }
+            }
+            return isValid;
+        }
+
+        private static bool ValueFormatIsValid(IDataObject dataObject)
+        {
+            var isValid = true;
+            IEnumerable<AttributeFormat> valueAttributes = ValueToAttributeFormat(dataObject.Value).ToList();
+            var dataObjecttAttributes = dataObject.AttributeFormat.ToList();
+
+            foreach (AttributeFormat att in valueAttributes)
+            {
+                bool contais = false;
+
+                foreach (AttributeFormat deAtt in dataObjecttAttributes)
                 {
                     if ((int)att == (int)deAtt)
                         contais = true;

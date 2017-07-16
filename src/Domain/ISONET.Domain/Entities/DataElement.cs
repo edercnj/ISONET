@@ -19,7 +19,7 @@ namespace ISONET.Domain.Entities
         public DataElement(IDataElementAttribute dataElementAttribute, short bit, string description, string name, ConditionUse conditionUse, string value) : this(dataElementAttribute, bit, description, name, conditionUse)
         {
             if (dataElementAttribute.Length != value.Length)
-                throw new ApplicationException($"Tamanho do dataElementAttribute.Length diferente do tamanho do parâmetro value.Length.");
+                throw new ApplicationException("Tamanho do dataElementAttribute.Length diferente do tamanho do parâmetro value.Length.");
 
             Value = value;
         }
@@ -30,7 +30,6 @@ namespace ISONET.Domain.Entities
                 throw new ApplicationException($"Tamanho de dataElementAttribute.Length diferente do tamanho retornado pelo método 'dataObjects.Aggregate(string.Empty, (current, data) => current + data.ToString()).Length'.");
 
             DataObjects = dataObjects;
-            Value = ToString();
         }
 
         public DataElement(IDataElementAttribute dataElementAttribute, short bit, string description, string name, ConditionUse conditionUse)
@@ -45,25 +44,52 @@ namespace ISONET.Domain.Entities
             ConditionUse = conditionUse;
         }
 
-        public IDataElementAttribute DataElementAttribute { get { return _dataElementAttribute; } private set { _dataElementAttribute = value; } }
-        public short Bit { get { return _bit; } private set { _bit = value; } }
-        public string Description { get { return _description; } set { _description = value; } }
-        public string Name { get { return _name; } private set { _name = value; } }
-        public ConditionUse ConditionUse { get { return _conditionUse; } private set { _conditionUse = value; } }
+        public IDataElementAttribute DataElementAttribute
+        {
+            get => _dataElementAttribute;
+            private set => _dataElementAttribute = value;
+        }
+        public short Bit
+        {
+            get => _bit;
+            private set => _bit = value;
+        }
+        public string Description
+        {
+            get => _description;
+            set => _description = value;
+        }
+        public string Name
+        {
+            get => _name;
+            private set => _name = value;
+        }
+        public ConditionUse ConditionUse
+        {
+            get => _conditionUse;
+            private set => _conditionUse = value;
+        }
 
         public string Value
         {
-            get { return _value; }
+            get => _value;
             set
             {
-                if (value.Equals(string.Empty) || value.Equals(null))
-                    throw new ApplicationException(@"Valor de 'DataElment.Value' não pode ser 'string.Empt' ou 'null'.");
+                if (DataObjects != null)
+                    throw new ApplicationException("Não é possível inserir um valor em um DataElement que possua DataObjects.");
+
+                if (value.Equals(null))
+                    throw new NullReferenceException(@"Valor de 'DataElment.Value' não pode ser null.");
 
                 _value = value;
             }
         }
 
-        public IEnumerable<IDataObject> DataObjects { get { return _dataObjects; } set { _dataObjects = value; } }
+        public IEnumerable<IDataObject> DataObjects
+        {
+            get => _dataObjects;
+            set => _dataObjects = value;
+        }
 
         public sealed override string ToString()
         {

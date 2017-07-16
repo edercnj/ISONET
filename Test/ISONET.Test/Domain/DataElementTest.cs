@@ -10,15 +10,15 @@ namespace ISONET.Test.Domain
     [TestClass]
     public class DataElementTest
     {
-        private IDataElement de03, de07, de10, de11, de12, de52, de61;
+        private IDataElement de03, de07, de10, de11, de12, de61;
         private IEnumerable<DataObject> dataObjects;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            dataObjects = new List<DataObject> { new DataObject(@"0001", 002, @"01"), new DataObject(@"0002", 003, @"003"), new DataObject(@"0003", 004, @"0004"), new DataObject(@"0004", 001, @"1") };
+            dataObjects = new List<DataObject> { new DataObject(@"0001", 002, @"01", new[] { AttributeFormat.Numeric }), new DataObject(@"0002", 003, @"003", new[] { AttributeFormat.Numeric }), new DataObject(@"0003", 004, @"0004", new[] { AttributeFormat.Numeric }), new DataObject(@"0004", 001, @"1", new[] { AttributeFormat.Numeric }) };
 
-            de03 = new DataElement(new DataElementAttribute(new[] { AttributeFormat.Numeric, AttributeFormat.Numeric }, LengthType.FIXED, new[] { AttributeMask.NoMask, AttributeMask.MM }, 6, 6), 3, @"PCode", @"PCode", ConditionUse.Mandatory, @"991000");
+            de03 = new DataElement(new DataElementAttribute(new[] { AttributeFormat.Numeric }, LengthType.FIXED, new[] { AttributeMask.NoMask, AttributeMask.MM }, 6, 6), 3, @"PCode", @"PCode", ConditionUse.Mandatory, @"991000");
             de07 = new DataElement(new DataElementAttribute(new[] { AttributeFormat.Numeric }, LengthType.LLVAR, new[] { AttributeMask.MM, AttributeMask.DD, AttributeMask.hh, AttributeMask.mm, AttributeMask.ss }, 10, 10), 7, @"Data e Hora GMT", @"Data e Hora GMT", ConditionUse.Mandatory, @"2106150513");
             de10 = new DataElement(new DataElementAttribute(new[] { AttributeFormat.Numeric }, LengthType.LLLVAR, new[] { AttributeMask.MM, AttributeMask.DD, AttributeMask.hh, AttributeMask.mm, AttributeMask.ss }, 15, 15), 10, @"Test LLLVAR", @"Test LLLVAR", ConditionUse.Mandatory, @"00000124567895A");
             de11 = new DataElement(new DataElementAttribute(new[] { AttributeFormat.Numeric, AttributeFormat.Alphabetical }, LengthType.LLLVAR, new[] { AttributeMask.MM, AttributeMask.DD, AttributeMask.hh, AttributeMask.mm, AttributeMask.ss }, 10, 10), 11, @"Test LLLVAR", @"Test LLLVAR", ConditionUse.Mandatory, @"1225115857");
@@ -56,7 +56,7 @@ namespace ISONET.Test.Domain
         {
             try
             {
-                de52 = new DataElement(new DataElementAttribute(new[] { AttributeFormat.Numeric }, LengthType.FIXED, new[] { AttributeMask.MM, AttributeMask.DD, AttributeMask.hh, AttributeMask.mm, AttributeMask.ss }, 8, 8), 52, @"Test LLLVAR", @"Test LLLVAR", ConditionUse.Mandatory, @"01030905000");
+                new DataElement(new DataElementAttribute(new[] { AttributeFormat.Numeric }, LengthType.FIXED, new[] { AttributeMask.MM, AttributeMask.DD, AttributeMask.hh, AttributeMask.mm, AttributeMask.ss }, 8, 8), 52, @"Test LLLVAR", @"Test LLLVAR", ConditionUse.Mandatory, @"01030905000");
                 Assert.Fail(@"Este teste precisa falhar!");
             }
             catch (ApplicationException err)
