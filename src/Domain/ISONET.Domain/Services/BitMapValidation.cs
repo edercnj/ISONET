@@ -4,11 +4,17 @@ namespace ISONET.Domain.Services
 {
     public static class BitMapValidation
     {
-        public static bool IsValid(IBitMap bitMap)
+        public static bool BitMapIsValid(this IMessage message)
         {
-            bool isValid = !FirstBitMapValidation.IsValid(bitMap) || !SecondBitMapValidation.IsValid(bitMap);
+            var de = message.DataElementsToBitMap();
 
-            return isValid;
+            for (int i = 0; i < message.BitMap.Length; i++)
+            {
+                if (de[i] != message.BitMap[i])
+                    return false;
+            }
+
+            return true;
         }
     }
 }

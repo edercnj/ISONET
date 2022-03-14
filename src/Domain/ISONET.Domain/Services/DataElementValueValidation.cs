@@ -1,12 +1,9 @@
-﻿namespace ISONET.Domain.Services
+﻿using ISONET.Domain.Interfaces.Entities;
+
+namespace ISONET.Domain.Services
 {
     public static class DataElementValueValidation
     {
-        public static bool IsValid(object value)
-        {
-            bool isValid = !value.Equals(null) || !value.Equals("");
-
-            return isValid;
-        }
+        public static bool ValueIsValid(this IDataElement dataElement) => ValueFormatValidation.FormatIsValid(dataElement) && ValueMaskValidation.MaskIsValid(dataElement) && ValueLengthValidation.ValueLengthIsValid(dataElement);
     }
 }

@@ -1,8 +1,9 @@
-﻿using ISONET.Domain.Interfaces.Entities;
-
-namespace ISONET.Domain.Entities
+﻿namespace ISONET.Domain.Entities
 {
-    public class ConditionUse : IConditionUse
+    public enum ConditionUse
     {
+        Ausente = 0,
+        Mandatory = 1,
+        Optional = 2
     }
 }
